@@ -1,6 +1,7 @@
 <?php
 require_once(__DIR__.'/../../../init_new.php');
 
+use Xoops\Core\Kernel\DataType;
 use Xoops\Core\Kernel\XoopsObject;
 use Xoops\Core\ObjectTree;
 
@@ -16,9 +17,9 @@ class ObjectTreeTest extends \PHPUnit\Framework\TestCase
         return new class() extends XoopsObject{
             public function __construct()
             {
-                $this->initVar('id', XOBJ_DTYPE_INT, 0);
-                $this->initVar('pid', XOBJ_DTYPE_INT, 0);
-                $this->initVar('rootid', XOBJ_DTYPE_INT, 0);
+                $this->initVar('id', DataType::INTEGER, 0);
+                $this->initVar('pid', DataType::INTEGER, 0);
+                $this->initVar('rootid', DataType::INTEGER, 0);
                 parent::__construct();
             }
         };

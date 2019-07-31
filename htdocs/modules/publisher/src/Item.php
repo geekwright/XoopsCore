@@ -19,6 +19,7 @@ use Xmf\Request;
 use Xoops;
 use Xoops\Core\Kernel\Criteria;
 use Xoops\Core\Kernel\CriteriaCompo;
+use Xoops\Core\Kernel\DataType;
 use Xoops\Core\Kernel\XoopsObject;
 use Xoops\Core\Text\Sanitizer;
 use XoopsBaseConfig;
@@ -30,12 +31,11 @@ use Doctrine\DBAL\FetchMode;
 
 /**
  * @copyright       The XUUPS Project http://sourceforge.net/projects/xuups/
- * @license         GNU GPL V2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @license         GNU GPL V2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  * @package         Publisher
  * @since           1.0
  * @author          trabis <lusopoemas@gmail.com>
  * @author          The SmartFactory <www.smartfactory.ca>
- * @version         $Id$
  */
 require_once \dirname(__DIR__) . '/include/common.php';
 
@@ -63,36 +63,36 @@ class Item extends XoopsObject
     public function __construct($id = null)
     {
         $this->helper = Helper::getInstance();
-        $this->initVar('itemid', \XOBJ_DTYPE_INT, 0);
-        $this->initVar('categoryid', \XOBJ_DTYPE_INT, 0, false);
-        $this->initVar('title', \XOBJ_DTYPE_TXTBOX, '', true, 255);
-        $this->initVar('subtitle', \XOBJ_DTYPE_TXTBOX, '', false, 255);
-        $this->initVar('summary', \XOBJ_DTYPE_TXTAREA, '', false);
-        $this->initVar('body', \XOBJ_DTYPE_TXTAREA, '', false);
-        $this->initVar('uid', \XOBJ_DTYPE_INT, 0, false);
-        $this->initVar('author_alias', \XOBJ_DTYPE_TXTBOX, '', false, 255);
-        $this->initVar('datesub', \XOBJ_DTYPE_INT, '', false);
-        $this->initVar('status', \XOBJ_DTYPE_INT, -1, false);
-        $this->initVar('image', \XOBJ_DTYPE_INT, 0, false);
-        $this->initVar('images', \XOBJ_DTYPE_TXTBOX, '', false, 255);
-        $this->initVar('counter', \XOBJ_DTYPE_INT, 0, false);
-        $this->initVar('rating', \XOBJ_DTYPE_OTHER, 0, false);
-        $this->initVar('votes', \XOBJ_DTYPE_INT, 0, false);
-        $this->initVar('weight', \XOBJ_DTYPE_INT, 0, false);
-        $this->initVar('dohtml', \XOBJ_DTYPE_INT, 1, true);
-        $this->initVar('dosmiley', \XOBJ_DTYPE_INT, 1, true);
-        $this->initVar('doimage', \XOBJ_DTYPE_INT, 1, true);
-        $this->initVar('dobr', \XOBJ_DTYPE_INT, 1, false);
-        $this->initVar('doxcode', \XOBJ_DTYPE_INT, 1, true);
-        $this->initVar('cancomment', \XOBJ_DTYPE_INT, 1, true);
-        $this->initVar('comments', \XOBJ_DTYPE_INT, 0, false);
-        $this->initVar('notifypub', \XOBJ_DTYPE_INT, 1, false);
-        $this->initVar('meta_keywords', \XOBJ_DTYPE_TXTAREA, '', false);
-        $this->initVar('meta_description', \XOBJ_DTYPE_TXTAREA, '', false);
-        $this->initVar('short_url', \XOBJ_DTYPE_TXTBOX, '', false, 255);
-        $this->initVar('item_tag', \XOBJ_DTYPE_TXTAREA, '', false);
+        $this->initVar('itemid', DataType::INTEGER, 0);
+        $this->initVar('categoryid', DataType::INTEGER, 0, false);
+        $this->initVar('title', DataType::STRING, '', true, 255);
+        $this->initVar('subtitle', DataType::STRING, '', false, 255);
+        $this->initVar('summary', DataType::TEXT, '', false);
+        $this->initVar('body', DataType::TEXT, '', false);
+        $this->initVar('uid', DataType::INTEGER, 0, false);
+        $this->initVar('author_alias', DataType::STRING, '', false, 255);
+        $this->initVar('datesub', DataType::INTEGER, '', false);
+        $this->initVar('status', DataType::INTEGER, -1, false);
+        $this->initVar('image', DataType::INTEGER, 0, false);
+        $this->initVar('images', DataType::STRING, '', false, 255);
+        $this->initVar('counter', DataType::INTEGER, 0, false);
+        $this->initVar('rating', DataType::OTHER, 0, false);
+        $this->initVar('votes', DataType::INTEGER, 0, false);
+        $this->initVar('weight', DataType::INTEGER, 0, false);
+        $this->initVar('dohtml', DataType::INTEGER, 1, true);
+        $this->initVar('dosmiley', DataType::INTEGER, 1, true);
+        $this->initVar('doimage', DataType::INTEGER, 1, true);
+        $this->initVar('dobr', DataType::INTEGER, 1, false);
+        $this->initVar('doxcode', DataType::INTEGER, 1, true);
+        $this->initVar('cancomment', DataType::INTEGER, 1, true);
+        $this->initVar('comments', DataType::INTEGER, 0, false);
+        $this->initVar('notifypub', DataType::INTEGER, 1, false);
+        $this->initVar('meta_keywords', DataType::TEXT, '', false);
+        $this->initVar('meta_description', DataType::TEXT, '', false);
+        $this->initVar('short_url', DataType::STRING, '', false, 255);
+        $this->initVar('item_tag', DataType::TEXT, '', false);
         // Non consistent values
-        $this->initVar('pagescount', \XOBJ_DTYPE_INT, 0, false);
+        $this->initVar('pagescount', DataType::INTEGER, 0, false);
         if (isset($id)) {
             $item = $this->helper->getItemHandler()->get($id);
             foreach ($item->vars as $k => $v) {

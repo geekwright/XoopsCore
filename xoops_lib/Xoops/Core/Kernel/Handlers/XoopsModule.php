@@ -19,7 +19,7 @@
 namespace Xoops\Core\Kernel\Handlers;
 
 use Xoops\Core\XoopsArray;
-use Xoops\Core\Kernel\Dtype;
+use Xoops\Core\Kernel\DataType;
 use Xoops\Core\Kernel\XoopsObject;
 
 /**
@@ -57,21 +57,21 @@ class XoopsModule extends XoopsObject
      */
     public function __construct()
     {
-        $this->initVar('mid', Dtype::TYPE_INTEGER, null, false);
-        $this->initVar('name', Dtype::TYPE_TEXT_BOX, null, true, 150);
-        $this->initVar('version', Dtype::TYPE_INTEGER, 100, false);
-        $this->initVar('last_update', Dtype::TYPE_INTEGER, null, false);
-        $this->initVar('weight', Dtype::TYPE_INTEGER, 0, false);
-        $this->initVar('isactive', Dtype::TYPE_INTEGER, 1, false);
-        $this->initVar('dirname', Dtype::TYPE_TEXT_BOX, null, true);
-        $this->initVar('hasmain', Dtype::TYPE_INTEGER, 0, false);
-        $this->initVar('hasadmin', Dtype::TYPE_INTEGER, 0, false);
-        $this->initVar('hassearch', Dtype::TYPE_INTEGER, 0, false);
-        $this->initVar('hasconfig', Dtype::TYPE_INTEGER, 0, false);
-        $this->initVar('hascomments', Dtype::TYPE_INTEGER, 0, false);
-        $this->initVar('hasnotification', Dtype::TYPE_INTEGER, 0, false);
-        $this->initVar('namespace', Dtype::TYPE_TEXT_BOX, null, true);
-        $this->initVar('category', Dtype::TYPE_TEXT_BOX, null, true);
+        $this->initVar('mid', DataType::INTEGER, null, false);
+        $this->initVar('name', DataType::STRING, null, true, 150);
+        $this->initVar('version', DataType::INTEGER, 100, false);
+        $this->initVar('last_update', DataType::INTEGER, null, false);
+        $this->initVar('weight', DataType::INTEGER, 0, false);
+        $this->initVar('isactive', DataType::INTEGER, 1, false);
+        $this->initVar('dirname', DataType::STRING, null, true);
+        $this->initVar('hasmain', DataType::INTEGER, 0, false);
+        $this->initVar('hasadmin', DataType::INTEGER, 0, false);
+        $this->initVar('hassearch', DataType::INTEGER, 0, false);
+        $this->initVar('hasconfig', DataType::INTEGER, 0, false);
+        $this->initVar('hascomments', DataType::INTEGER, 0, false);
+        $this->initVar('hasnotification', DataType::INTEGER, 0, false);
+        $this->initVar('namespace', DataType::STRING, null, true);
+        $this->initVar('category', DataType::STRING, null, true);
 
         $this->xoops_url = \XoopsBaseConfig::get('url');
         $this->xoops_root_path = \XoopsBaseConfig::get('root-path');
@@ -280,7 +280,7 @@ class XoopsModule extends XoopsObject
     /**
      * getter for mid
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -292,7 +292,7 @@ class XoopsModule extends XoopsObject
     /**
      * another getter for mid
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -304,7 +304,7 @@ class XoopsModule extends XoopsObject
     /**
      * getter for module name
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -316,7 +316,7 @@ class XoopsModule extends XoopsObject
     /**
      * getter for module version
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -328,7 +328,7 @@ class XoopsModule extends XoopsObject
     /**
      * getter for module last update
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -340,7 +340,7 @@ class XoopsModule extends XoopsObject
     /**
      * getter for weight
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -352,7 +352,7 @@ class XoopsModule extends XoopsObject
     /**
      * getter for isactive
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -364,7 +364,7 @@ class XoopsModule extends XoopsObject
     /**
      * getter for dirname
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -376,7 +376,7 @@ class XoopsModule extends XoopsObject
     /**
      * getter for hasmain
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -388,7 +388,7 @@ class XoopsModule extends XoopsObject
     /**
      * getter for hasadmin
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -400,7 +400,7 @@ class XoopsModule extends XoopsObject
     /**
      * getter for hassearch
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -412,7 +412,7 @@ class XoopsModule extends XoopsObject
     /**
      * getter for hasconfig
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -424,7 +424,7 @@ class XoopsModule extends XoopsObject
     /**
      * getter for hascomments
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -436,7 +436,7 @@ class XoopsModule extends XoopsObject
     /**
      * getter for hasnotifications
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */

@@ -12,6 +12,7 @@ namespace XoopsModules\Publisher;
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  */
 
+use Xoops\Core\Kernel\DataType;
 use Xoops\Core\Kernel\XoopsObject;
 
 /**
@@ -21,8 +22,8 @@ use Xoops\Core\Kernel\XoopsObject;
  * @since     1.0
  * @author    trabis <lusopoemas@gmail.com>
  * @author    Nazar Aziz <nazar@panthersoftware.com>
- * @copyright 2014 XOOPS Project (http://xoops.org)
- * @license   GNU GPL V2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @copyright 2014-2019 XOOPS Project (https://xoops.org)
+ * @license   GNU GPL V2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  */
 
 /**
@@ -32,11 +33,11 @@ class Mimetype extends XoopsObject
 {
     public function __construct()
     {
-        $this->initVar('mime_id', \XOBJ_DTYPE_INT, null, false);
-        $this->initVar('mime_ext', \XOBJ_DTYPE_TXTBOX, null, true, 60);
-        $this->initVar('mime_types', \XOBJ_DTYPE_TXTAREA, null, false, 1024);
-        $this->initVar('mime_name', \XOBJ_DTYPE_TXTBOX, null, true, 255);
-        $this->initVar('mime_admin', \XOBJ_DTYPE_INT, null, false);
-        $this->initVar('mime_user', \XOBJ_DTYPE_INT, null, false);
+        $this->initVar('mime_id', DataType::INTEGER, null, false);
+        $this->initVar('mime_ext', DataType::STRING, null, true, 60);
+        $this->initVar('mime_types', DataType::TEXT, null, false, 1024);
+        $this->initVar('mime_name', DataType::STRING, null, true, 255);
+        $this->initVar('mime_admin', DataType::INTEGER, null, false);
+        $this->initVar('mime_user', DataType::INTEGER, null, false);
     }
 }

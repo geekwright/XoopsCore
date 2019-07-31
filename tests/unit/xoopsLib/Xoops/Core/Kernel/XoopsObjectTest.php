@@ -1,6 +1,7 @@
 <?php
 require_once(__DIR__.'/../../../../init_new.php');
 
+use Xoops\Core\Kernel\DataType;
 use Xoops\Core\Kernel\Handlers\XoopsGroup;
 
 class XoopsObjectTestInstance extends Xoops\Core\Kernel\XoopsObject
@@ -75,7 +76,7 @@ class XoopsObjectTest extends \PHPUnit\Framework\TestCase
         $this->assertInstanceOf($this->myClass, $instance);
 
         $key = 'key';
-        $data_type = XOBJ_DTYPE_TXTBOX;
+        $data_type = DataType::STRING;
         $value = 'value';
         $required = true;
         $maxlength = 10;
@@ -109,7 +110,7 @@ class XoopsObjectTest extends \PHPUnit\Framework\TestCase
         $this->assertInstanceOf($this->myClass, $instance);
 
         $key = 'key';
-        $data_type = XOBJ_DTYPE_TXTBOX;
+        $data_type = DataType::STRING;
         $instance->initVar($key, $data_type);
         $vars = $instance->vars;
         $this->assertTrue(is_array($vars));
@@ -128,14 +129,14 @@ class XoopsObjectTest extends \PHPUnit\Framework\TestCase
         $this->assertInstanceOf($this->myClass, $instance);
 
         $key = 'key1';
-        $data_type = XOBJ_DTYPE_TXTBOX;
+        $data_type = DataType::STRING;
         $instance->initVar($key, $data_type);
         $vars = $instance->vars;
         $this->assertTrue(is_array($vars));
         $this->assertTrue($vars[$key]['value'] == null);
 
         $key = 'key2';
-        $data_type = XOBJ_DTYPE_TXTBOX;
+        $data_type = DataType::STRING;
         $instance->initVar($key, $data_type);
         $vars = $instance->vars;
         $this->assertTrue(is_array($vars));
@@ -153,7 +154,7 @@ class XoopsObjectTest extends \PHPUnit\Framework\TestCase
     public function test_setVar()
     {
         $instance = new $this->myClass();
-        $instance->initVar('dummyVar', XOBJ_DTYPE_INT, 0);
+        $instance->initVar('dummyVar', DataType::INTEGER, 0);
         $value = &$instance->vars['dummyVar'];
         $this->assertSame(0, $value['value']);
 
@@ -171,9 +172,9 @@ class XoopsObjectTest extends \PHPUnit\Framework\TestCase
     public function test_setVars()
     {
         $instance = new $this->myClass();
-        $instance->initVar('dummyVar1', XOBJ_DTYPE_INT, 0);
-        $instance->initVar('dummyVar2', XOBJ_DTYPE_INT, 0);
-        $instance->initVar('dummyVar3', XOBJ_DTYPE_INT, 0);
+        $instance->initVar('dummyVar1', DataType::INTEGER, 0);
+        $instance->initVar('dummyVar2', DataType::INTEGER, 0);
+        $instance->initVar('dummyVar3', DataType::INTEGER, 0);
 
         $instance->setVars(array(
             'dummyVar1' => 1,
@@ -193,29 +194,11 @@ class XoopsObjectTest extends \PHPUnit\Framework\TestCase
         $this->assertSame(true, $x);
     }
 
-    public function test_setFormVars()
-    {
-        $instance = new $this->myClass();
-        $instance->initVar('dummyVar1', XOBJ_DTYPE_INT, 0);
-        $instance->initVar('dummyVar2', XOBJ_DTYPE_INT, 0);
-        $instance->initVar('dummyVar3', XOBJ_DTYPE_INT, 0);
-
-        $params = array('xo_dummyVar1' => 1, 'xo_dummyVar2' => 2, 'xo_dummyVar3' => 3);
-        $instance->setFormVars($params);
-
-        $x = $instance->getVar('dummyVar1');
-        $this->assertSame('1', $x);
-        $x = $instance->getVar('dummyVar2');
-        $this->assertSame('2', $x);
-        $x = $instance->getVar('dummyVar3');
-        $this->assertSame('3', $x);
-    }
-
     public function test_getVars()
     {
         $instance = new $this->myClass();
-        $instance->initVar('dummyVar1', XOBJ_DTYPE_INT, 0);
-        $instance->initVar('dummyVar2', XOBJ_DTYPE_INT, 0);
+        $instance->initVar('dummyVar1', DataType::INTEGER, 0);
+        $instance->initVar('dummyVar2', DataType::INTEGER, 0);
         $x = $instance->getVars();
         $this->assertTrue(isset($x['dummyVar1']));
         $this->assertTrue(isset($x['dummyVar2']));
@@ -224,8 +207,8 @@ class XoopsObjectTest extends \PHPUnit\Framework\TestCase
     public function test_getValues()
     {
         $instance = new $this->myClass();
-        $instance->initVar('dummyVar1', XOBJ_DTYPE_INT, 0);
-        $instance->initVar('dummyVar2', XOBJ_DTYPE_INT, 0);
+        $instance->initVar('dummyVar1', DataType::INTEGER, 0);
+        $instance->initVar('dummyVar2', DataType::INTEGER, 0);
         $x = $instance->getValues();
         $this->assertTrue(isset($x['dummyVar1']));
         $this->assertTrue(isset($x['dummyVar2']));
@@ -238,8 +221,8 @@ class XoopsObjectTest extends \PHPUnit\Framework\TestCase
     public function test_getVar()
     {
         $instance = new $this->myClass();
-        $instance->initVar('dummyVar1', XOBJ_DTYPE_INT, 0);
-        $instance->initVar('dummyVar2', XOBJ_DTYPE_INT, 0);
+        $instance->initVar('dummyVar1', DataType::INTEGER, 0);
+        $instance->initVar('dummyVar2', DataType::INTEGER, 0);
         $x = $instance->getVar('NOT_EXISTS');
         $this->assertSame(null, $x);
         $x = $instance->getVar('dummyVar1');
@@ -249,8 +232,8 @@ class XoopsObjectTest extends \PHPUnit\Framework\TestCase
     public function test_cleanVars()
     {
         $instance = new $this->myClass();
-        $instance->initVar('dummyVar1', XOBJ_DTYPE_INT, 0);
-        $instance->initVar('dummyVar2', XOBJ_DTYPE_INT, 0);
+        $instance->initVar('dummyVar1', DataType::INTEGER, 0);
+        $instance->initVar('dummyVar2', DataType::INTEGER, 0);
         $instance->setVar('dummyVar1', 1);
         $instance->setVar('dummyVar2', 2);
         $x = $instance->cleanVars();
@@ -312,8 +295,8 @@ class XoopsObjectTest extends \PHPUnit\Framework\TestCase
     public function test_toArray()
     {
         $instance = new $this->myClass();
-        $instance->initVar('dummyVar1', XOBJ_DTYPE_INT, 0);
-        $instance->initVar('dummyVar2', XOBJ_DTYPE_INT, 0);
+        $instance->initVar('dummyVar1', DataType::INTEGER, 0);
+        $instance->initVar('dummyVar2', DataType::INTEGER, 0);
         $x = $instance->toArray();
         $this->assertTrue(isset($x['dummyVar1']));
         $this->assertTrue(isset($x['dummyVar2']));
@@ -322,8 +305,8 @@ class XoopsObjectTest extends \PHPUnit\Framework\TestCase
     public function test_ArrayAccess()
     {
         $instance = new $this->myClass();
-        $instance->initVar('dummyVar1', XOBJ_DTYPE_INT, 0);
-        $instance->initVar('dummyVar2', XOBJ_DTYPE_INT, 0);
+        $instance->initVar('dummyVar1', DataType::INTEGER, 0);
+        $instance->initVar('dummyVar2', DataType::INTEGER, 0);
 
         $this->assertTrue(isset($instance['dummyVar1']));
         $this->assertTrue(isset($instance['dummyVar2']));

@@ -10,15 +10,15 @@
 */
 
 use Xoops\Core\Database\Connection;
-use Xoops\Core\Kernel\Dtype;
+use Xoops\Core\Kernel\DataType;
 use Xoops\Core\Kernel\XoopsObject;
 use Xoops\Core\Kernel\XoopsPersistableObjectHandler;
 
 /**
  * Extended User Profile
  *
- * @copyright       2000-2016 XOOPS Project (http://xoops.org)
- * @license         GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @copyright       2000-2019 XOOPS Project (https://xoops.org)
+ * @license         GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  * @package         profile
  * @since           2.3.0
  * @author          Jan Pedersen
@@ -29,11 +29,11 @@ class ProfileRegstep extends XoopsObject
 {
     public function __construct()
     {
-        $this->initVar('step_id', Dtype::TYPE_INTEGER);
-        $this->initVar('step_name', Dtype::TYPE_TEXT_BOX);
-        $this->initVar('step_desc', Dtype::TYPE_TEXT_AREA);
-        $this->initVar('step_order', Dtype::TYPE_INTEGER, 1);
-        $this->initVar('step_save', Dtype::TYPE_INTEGER, 0);
+        $this->initVar('step_id', DataType::INTEGER);
+        $this->initVar('step_name', DataType::STRING);
+        $this->initVar('step_desc', DataType::TEXT);
+        $this->initVar('step_order', DataType::INTEGER, 1);
+        $this->initVar('step_save', DataType::INTEGER, 0);
     }
 }
 

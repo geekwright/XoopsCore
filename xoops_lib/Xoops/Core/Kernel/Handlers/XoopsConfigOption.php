@@ -19,7 +19,8 @@
 
 namespace Xoops\Core\Kernel\Handlers;
 
-use Xoops\Core\Kernel\Dtype;
+use Xoops\Core\Kernel\DataType;
+use Xoops\Core\Kernel\Format;
 use Xoops\Core\Kernel\XoopsObject;
 
 /**
@@ -28,9 +29,8 @@ use Xoops\Core\Kernel\XoopsObject;
  * @category  Xoops\Core\Kernel\Handlers\XoopsConfigOption
  * @package   Xoops\Core\Kernel
  * @author    Kazumi Ono <onokazu@xoops.org>
- * @copyright 2000-2015 XOOPS Project (http://xoops.org)
- * @license   GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
- * @link      http://xoops.org
+ * @copyright 2000-2019 XOOPS Project (https://xoops.org)
+ * @license   GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  */
 class XoopsConfigOption extends XoopsObject
 {
@@ -39,20 +39,20 @@ class XoopsConfigOption extends XoopsObject
      */
     public function __construct()
     {
-        $this->initVar('confop_id', Dtype::TYPE_INTEGER, null);
-        $this->initVar('confop_name', Dtype::TYPE_TEXT_BOX, null, true, 255);
-        $this->initVar('confop_value', Dtype::TYPE_TEXT_BOX, null, true, 255);
-        $this->initVar('conf_id', Dtype::TYPE_INTEGER, 0);
+        $this->initVar('confop_id', DataType::INTEGER, null);
+        $this->initVar('confop_name', DataType::STRING, null, true, 255);
+        $this->initVar('confop_value', DataType::STRING, null, true, 255);
+        $this->initVar('conf_id', DataType::INTEGER, 0);
     }
 
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
-    public function id($format = Dtype::FORMAT_NONE)
+    public function id($format = Format::NONE)
     {
         return $this->getVar('confop_id', $format);
     }
@@ -60,7 +60,7 @@ class XoopsConfigOption extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -72,7 +72,7 @@ class XoopsConfigOption extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -84,7 +84,7 @@ class XoopsConfigOption extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -96,7 +96,7 @@ class XoopsConfigOption extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */

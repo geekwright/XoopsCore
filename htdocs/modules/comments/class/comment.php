@@ -19,14 +19,16 @@
  */
 
 use Xoops\Core\Database\Connection;
+use Xoops\Core\Kernel\DataType;
 use Xoops\Core\Kernel\XoopsObject;
 use Xoops\Core\Kernel\XoopsPersistableObjectHandler;
 
 /**
  * A Comment
  *
- * @author        Kazumi Ono    <onokazu@xoops.org>
- * @copyright    copyright (c) 2000-2003 XOOPS.org
+ * @author    Kazumi Ono <onokazu@xoops.org>
+ * @copyright copyright (c) 2000-2019 The XOOPS Project https://xoops.org
+ * @license   GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  */
 class CommentsComment extends XoopsObject
 {
@@ -36,26 +38,26 @@ class CommentsComment extends XoopsObject
      **/
     public function __construct()
     {
-        $this->initVar('id', XOBJ_DTYPE_INT, 0, false);
-        $this->initVar('pid', XOBJ_DTYPE_INT, 0, false);
-        $this->initVar('modid', XOBJ_DTYPE_INT, null, false);
-        $this->initVar('icon', XOBJ_DTYPE_OTHER, '', false);
-        $this->initVar('title', XOBJ_DTYPE_TXTBOX, null, true, 255, true);
-        $this->initVar('text', XOBJ_DTYPE_TXTAREA, '', true, null, true);
-        $this->initVar('created', XOBJ_DTYPE_INT, 0, false);
-        $this->initVar('modified', XOBJ_DTYPE_INT, 0, false);
-        $this->initVar('uid', XOBJ_DTYPE_INT, 0, true);
-        $this->initVar('ip', XOBJ_DTYPE_OTHER, null, false);
-        $this->initVar('sig', XOBJ_DTYPE_INT, 0, false);
-        $this->initVar('itemid', XOBJ_DTYPE_INT, 0, false);
-        $this->initVar('rootid', XOBJ_DTYPE_INT, 0, false);
-        $this->initVar('status', XOBJ_DTYPE_INT, 0, false);
-        $this->initVar('exparams', XOBJ_DTYPE_OTHER, null, false, 255);
-        $this->initVar('dohtml', XOBJ_DTYPE_INT, 0, false);
-        $this->initVar('dosmiley', XOBJ_DTYPE_INT, 1, false);
-        $this->initVar('doxcode', XOBJ_DTYPE_INT, 1, false);
-        $this->initVar('doimage', XOBJ_DTYPE_INT, 1, false);
-        $this->initVar('dobr', XOBJ_DTYPE_INT, 1, false);
+        $this->initVar('id', DataType::INTEGER, 0, false);
+        $this->initVar('pid', DataType::INTEGER, 0, false);
+        $this->initVar('modid', DataType::INTEGER, null, false);
+        $this->initVar('icon', DataType::OTHER, '', false);
+        $this->initVar('title', DataType::STRING, null, true, 255, true);
+        $this->initVar('text', DataType::TEXT, '', true, null, true);
+        $this->initVar('created', DataType::INTEGER, 0, false);
+        $this->initVar('modified', DataType::INTEGER, 0, false);
+        $this->initVar('uid', DataType::INTEGER, 0, true);
+        $this->initVar('ip', DataType::OTHER, null, false);
+        $this->initVar('sig', DataType::INTEGER, 0, false);
+        $this->initVar('itemid', DataType::INTEGER, 0, false);
+        $this->initVar('rootid', DataType::INTEGER, 0, false);
+        $this->initVar('status', DataType::INTEGER, 0, false);
+        $this->initVar('exparams', DataType::OTHER, null, false, 255);
+        $this->initVar('dohtml', DataType::INTEGER, 0, false);
+        $this->initVar('dosmiley', DataType::INTEGER, 1, false);
+        $this->initVar('doxcode', DataType::INTEGER, 1, false);
+        $this->initVar('doimage', DataType::INTEGER, 1, false);
+        $this->initVar('dobr', DataType::INTEGER, 1, false);
     }
 
     /**

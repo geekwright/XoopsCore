@@ -12,16 +12,16 @@
 use Doctrine\DBAL\FetchMode;
 use Xoops\Core\Database\Connection;
 use Xoops\Core\FixedGroups;
+use Xoops\Core\Kernel\DataType;
 use Xoops\Core\Kernel\XoopsObject;
 use Xoops\Core\Kernel\XoopsPersistableObjectHandler;
 
 /**
- * @copyright       XOOPS Project (http://xoops.org)
- * @license         GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @copyright       XOOPS Project (https://xoops.org)
+ * @license         GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  * @package         Menus
  * @since           1.0
  * @author          trabis <lusopoemas@gmail.com>
- * @version         $Id$
  */
 
 class MenusMenu extends XoopsObject
@@ -31,19 +31,19 @@ class MenusMenu extends XoopsObject
      */
     public function __construct()
     {
-        $this->initVar('id', XOBJ_DTYPE_INT);
-        $this->initVar('pid', XOBJ_DTYPE_INT);
-        $this->initVar('mid', XOBJ_DTYPE_INT);
-        $this->initVar('title', XOBJ_DTYPE_TXTBOX, '');
-        $this->initVar('alt_title', XOBJ_DTYPE_TXTBOX, '');
-        $this->initVar('visible', XOBJ_DTYPE_INT, 1);
-        $this->initVar('link', XOBJ_DTYPE_TXTBOX);
-        $this->initVar('weight', XOBJ_DTYPE_INT, 255);
-        $this->initVar('target', XOBJ_DTYPE_TXTBOX, '_self');
-        $this->initVar('groups', XOBJ_DTYPE_ARRAY, serialize(array(FixedGroups::ANONYMOUS, FixedGroups::USERS)));
-        $this->initVar('hooks', XOBJ_DTYPE_ARRAY, serialize(array()));
-        $this->initVar('image', XOBJ_DTYPE_TXTBOX);
-        $this->initVar('css', XOBJ_DTYPE_TXTBOX);
+        $this->initVar('id', DataType::INTEGER);
+        $this->initVar('pid', DataType::INTEGER);
+        $this->initVar('mid', DataType::INTEGER);
+        $this->initVar('title', DataType::STRING, '');
+        $this->initVar('alt_title', DataType::STRING, '');
+        $this->initVar('visible', DataType::INTEGER, 1);
+        $this->initVar('link', DataType::STRING);
+        $this->initVar('weight', DataType::INTEGER, 255);
+        $this->initVar('target', DataType::STRING, '_self');
+        $this->initVar('groups', DataType::ARRAY, serialize(array(FixedGroups::ANONYMOUS, FixedGroups::USERS)));
+        $this->initVar('hooks', DataType::ARRAY, serialize(array()));
+        $this->initVar('image', DataType::STRING);
+        $this->initVar('css', DataType::STRING);
     }
 }
 

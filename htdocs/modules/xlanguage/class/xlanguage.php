@@ -11,18 +11,17 @@
 
 use Xmf\Request;
 use Xoops\Core\Database\Connection;
+use Xoops\Core\Kernel\DataType;
 use Xoops\Core\Kernel\XoopsObject;
 use Xoops\Core\Kernel\XoopsPersistableObjectHandler;
 
 /**
  * XlanguageLanguage
  *
- * @copyright       2010-2014 XOOPS Project (http://xoops.org)
- * @license         GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @copyright       2010-2019 XOOPS Project (https://xoops.org)
+ * @license         GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  * @package         xlanguage
- * @since           2.6.0
  * @author          Laurent JEN (Aka DuGris)
- * @version         $Id$
  */
 
 include_once \XoopsBaseConfig::get('root-path') . '/modules/xlanguage/include/vars.php';
@@ -37,13 +36,13 @@ class XlanguageLanguage extends XoopsObject
      */
     public function __construct()
     {
-        $this->initVar('xlanguage_id', XOBJ_DTYPE_INT, 0, false, 10);
-        $this->initVar('xlanguage_name', XOBJ_DTYPE_TXTBOX, '', false);
-        $this->initVar('xlanguage_description', XOBJ_DTYPE_TXTBOX, '', false);
-        $this->initVar('xlanguage_code', XOBJ_DTYPE_TXTBOX, '', false);
-        $this->initVar('xlanguage_charset', XOBJ_DTYPE_TXTBOX, 'utf-8', false);
-        $this->initVar('xlanguage_image', XOBJ_DTYPE_TXTBOX, '_unknown.png', false);
-        $this->initVar('xlanguage_weight', XOBJ_DTYPE_INT, 1, false, 10);
+        $this->initVar('xlanguage_id', DataType::INTEGER, 0, false, 10);
+        $this->initVar('xlanguage_name', DataType::STRING, '', false);
+        $this->initVar('xlanguage_description', DataType::STRING, '', false);
+        $this->initVar('xlanguage_code', DataType::STRING, '', false);
+        $this->initVar('xlanguage_charset', DataType::STRING, 'utf-8', false);
+        $this->initVar('xlanguage_image', DataType::STRING, '_unknown.png', false);
+        $this->initVar('xlanguage_weight', DataType::INTEGER, 1, false, 10);
     }
 
     /**
@@ -60,6 +59,7 @@ class XlanguageLanguage extends XoopsObject
         return $ret;
     }
 
+    // TODO: This must go
     public function cleanVarsForDB()
     {
         $system = System::getInstance();
@@ -68,7 +68,7 @@ class XlanguageLanguage extends XoopsObject
                 if ($this->vars[$k]['data_type'] == XOBJ_DTYPE_STIME || $this->vars[$k]['data_type'] == XOBJ_DTYPE_MTIME || $this->vars[$k]['data_type'] == XOBJ_DTYPE_LTIME) {
                     $value = $system->cleanVars($_POST[$k], 'date', date('Y-m-d'), 'date') + $system->cleanVars($_POST[$k], 'time', date('u'), 'int');
                     $this->setVar($k, isset($_POST[$k]) ? $value : $v);
-                } elseif ($this->vars[$k]['data_type'] == XOBJ_DTYPE_INT) {
+                } elseif ($this->vars[$k]['data_type'] == DataType::INTEGER) {
                     $value = Request::getInt($k, $v, 'POST');
                     $this->setVar($k, $value);
                 } elseif ($this->vars[$k]['data_type'] == XOBJ_DTYPE_ARRAY) {

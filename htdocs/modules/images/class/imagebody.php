@@ -10,15 +10,14 @@
 */
 
 use Xoops\Core\Database\Connection;
+use Xoops\Core\Kernel\DataType;
 use Xoops\Core\Kernel\XoopsObject;
 use Xoops\Core\Kernel\XoopsPersistableObjectHandler;
 
 /**
- * @copyright       XOOPS Project (http://xoops.org)
- * @license         GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @copyright       XOOPS Project (https://xoops.org)
+ * @license         GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  * @package         Images
- * @author
- * @version         $Id$
  */
 
 class ImagesImagebody extends XoopsObject
@@ -28,8 +27,8 @@ class ImagesImagebody extends XoopsObject
      */
     public function __construct()
     {
-        $this->initVar('image_id', XOBJ_DTYPE_INT, null, false, 8);
-        $this->initVar('image_body', XOBJ_DTYPE_SOURCE, null, true);
+        $this->initVar('image_id', DataType::INTEGER, null, false, 8);
+        $this->initVar('image_body', DataType::SOURCE, null, true);
     }
 }
 

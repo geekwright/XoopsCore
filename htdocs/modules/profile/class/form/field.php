@@ -9,11 +9,11 @@
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 */
 
-use Xoops\Core\Kernel\Dtype;
+use Xoops\Core\Kernel\DataType;
 
 /**
- * @copyright       2000-2016 XOOPS Project (http://xoops.org)
- * @license         GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @copyright       2000-2019 XOOPS Project (https://xoops.org)
+ * @license         GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  * @author          trabis <lusopoemas@gmail.com>
  */
 
@@ -73,15 +73,15 @@ class ProfileFieldForm extends Xoops\Form\ThemeForm
             switch ($obj->getVar('field_type')) {
                 case "textbox":
                     $valuetypes = array(
-                        Dtype::TYPE_ARRAY => _PROFILE_AM_ARRAY,
-                        Dtype::TYPE_EMAIL => _PROFILE_AM_EMAIL,
-                        Dtype::TYPE_INTEGER => _PROFILE_AM_INT,
-                        Dtype::TYPE_FLOAT => _PROFILE_AM_FLOAT,
-                        Dtype::TYPE_DECIMAL => _PROFILE_AM_DECIMAL,
-                        Dtype::TYPE_TEXT_AREA => _PROFILE_AM_TXTAREA,
-                        Dtype::TYPE_TEXT_BOX => _PROFILE_AM_TXTBOX,
-                        Dtype::TYPE__URL => _PROFILE_AM_URL,
-                        Dtype::TYPE_OTHER => _PROFILE_AM_OTHER
+                        DataType::ARRAY => _PROFILE_AM_ARRAY,
+                        DataType::EMAIL => _PROFILE_AM_EMAIL,
+                        DataType::INTEGER => _PROFILE_AM_INT,
+                        DataType::FLOAT => _PROFILE_AM_FLOAT,
+                        DataType::DECIMAL => _PROFILE_AM_DECIMAL,
+                        DataType::TEXT => _PROFILE_AM_TXTAREA,
+                        DataType::STRING => _PROFILE_AM_TXTBOX,
+                        DataType::_URL => _PROFILE_AM_URL,
+                        DataType::OTHER => _PROFILE_AM_OTHER
                     );
 
                     $type_select = new Xoops\Form\Select(_PROFILE_AM_VALUETYPE, 'field_valuetype', $obj->getVar('field_valuetype', 'e'), 5, 5);
@@ -92,15 +92,15 @@ class ProfileFieldForm extends Xoops\Form\ThemeForm
                 case "select":
                 case "radio":
                     $valuetypes = array(
-                        Dtype::TYPE__ARRAY => _PROFILE_AM_ARRAY,
-                        Dtype::TYPE__EMAIL => _PROFILE_AM_EMAIL,
-                        Dtype::TYPE_INTEGER => _PROFILE_AM_INT,
-                        Dtype::TYPE_FLOAT => _PROFILE_AM_FLOAT,
-                        Dtype::TYPE_DECIMAL => _PROFILE_AM_DECIMAL,
-                        Dtype::TYPE_TEXT_AREA => _PROFILE_AM_TXTAREA,
-                        Dtype::TYPE_TEXT_BOX => _PROFILE_AM_TXTBOX,
-                        Dtype::TYPE_URL => _PROFILE_AM_URL,
-                        Dtype::TYPE_OTHER => _PROFILE_AM_OTHER
+                        DataType::_ARRAY => _PROFILE_AM_ARRAY,
+                        DataType::_EMAIL => _PROFILE_AM_EMAIL,
+                        DataType::INTEGER => _PROFILE_AM_INT,
+                        DataType::FLOAT => _PROFILE_AM_FLOAT,
+                        DataType::DECIMAL => _PROFILE_AM_DECIMAL,
+                        DataType::TEXT => _PROFILE_AM_TXTAREA,
+                        DataType::STRING => _PROFILE_AM_TXTBOX,
+                        DataType::URL => _PROFILE_AM_URL,
+                        DataType::OTHER => _PROFILE_AM_OTHER
                     );
 
                     $type_select = new Xoops\Form\Select(_PROFILE_AM_VALUETYPE, 'field_valuetype', $obj->getVar('field_valuetype', 'e'));

@@ -19,7 +19,8 @@
 
 namespace Xoops\Core\Kernel\Handlers;
 
-use Xoops\Core\Kernel\Dtype;
+use Xoops\Core\Kernel\DataType;
+use Xoops\Core\Kernel\Format;
 use Xoops\Core\Kernel\XoopsObject;
 
 /**
@@ -28,9 +29,8 @@ use Xoops\Core\Kernel\XoopsObject;
  * @category  Xoops\Core\Kernel\Handlers\XoopsOnline
  * @package   Xoops\Core\Kernel
  * @author    trabis <lusopoemas@gmail.com>
- * @copyright 2000-2015 XOOPS Project (http://xoops.org)
- * @license   GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
- * @link      http://xoops.org
+ * @copyright 2000-2019 XOOPS Project (https://xoops.org)
+ * @license   GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  */
 class XoopsOnline extends XoopsObject
 {
@@ -39,21 +39,21 @@ class XoopsOnline extends XoopsObject
      */
     public function __construct()
     {
-        $this->initVar('online_uid', Dtype::TYPE_INTEGER, null, false);
-        $this->initVar('online_uname', Dtype::TYPE_TEXT_BOX, null, true);
-        $this->initVar('online_updated', Dtype::TYPE_INTEGER, null, true);
-        $this->initVar('online_module', Dtype::TYPE_INTEGER, null, true);
-        $this->initVar('online_ip', Dtype::TYPE_TEXT_BOX, null, true);
+        $this->initVar('online_uid', DataType::INTEGER, null, false);
+        $this->initVar('online_uname', DataType::STRING, null, true);
+        $this->initVar('online_updated', DataType::INTEGER, null, true);
+        $this->initVar('online_module', DataType::INTEGER, null, true);
+        $this->initVar('online_ip', DataType::STRING, null, true);
     }
 
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
-    public function id($format = Dtype::FORMAT_NONE)
+    public function id($format = Format::NONE)
     {
         return $this->online_uid($format);
     }
@@ -61,11 +61,11 @@ class XoopsOnline extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
-    public function online_uid($format = Dtype::FORMAT_NONE)
+    public function online_uid($format = Format::NONE)
     {
         return $this->getVar('online_uid', $format);
     }
@@ -73,7 +73,7 @@ class XoopsOnline extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -85,7 +85,7 @@ class XoopsOnline extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -97,7 +97,7 @@ class XoopsOnline extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -109,7 +109,7 @@ class XoopsOnline extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */

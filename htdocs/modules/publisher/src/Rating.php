@@ -12,17 +12,17 @@ namespace XoopsModules\Publisher;
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  */
 
+use Xoops\Core\Kernel\DataType;
 use Xoops\Core\Kernel\XoopsObject;
 
 /**
  *  Publisher class
  *
  * @copyright       The XUUPS Project http://sourceforge.net/projects/xuups/
- * @license         GNU GPL V2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @license         GNU GPL V2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  * @package         Publisher
  * @since           1.0
  * @author          trabis <lusopoemas@gmail.com>
- * @version         $Id$
  */
 require_once \dirname(__DIR__) . '/include/common.php';
 
@@ -37,11 +37,11 @@ class Rating extends XoopsObject
      */
     public function __construct()
     {
-        $this->initVar('ratingid', \XOBJ_DTYPE_INT, null, false);
-        $this->initVar('itemid', \XOBJ_DTYPE_INT, null, false);
-        $this->initVar('uid', \XOBJ_DTYPE_INT, null, false);
-        $this->initVar('rate', \XOBJ_DTYPE_INT, null, false);
-        $this->initVar('ip', \XOBJ_DTYPE_TXTAREA, null, false);
-        $this->initVar('date', \XOBJ_DTYPE_INT, null, false);
+        $this->initVar('ratingid', DataType::INTEGER, null, false);
+        $this->initVar('itemid', DataType::INTEGER, null, false);
+        $this->initVar('uid', DataType::INTEGER, null, false);
+        $this->initVar('rate', DataType::INTEGER, null, false);
+        $this->initVar('ip', DataType::TEXT, null, false);
+        $this->initVar('date', DataType::INTEGER, null, false);
     }
 }

@@ -10,18 +10,17 @@
 */
 
 use Xoops\Core\Database\Connection;
+use Xoops\Core\Kernel\DataType;
 use Xoops\Core\Kernel\XoopsObject;
 use Xoops\Core\Kernel\XoopsPersistableObjectHandler;
 
 /**
  * page module
  *
- * @copyright       XOOPS Project (http://xoops.org)
- * @license         GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @copyright       XOOPS Project (https://xoops.org)
+ * @license         GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  * @package         page
- * @since           2.6.0
  * @author          Mage Grégory (AKA Mage)
- * @version         $Id$
  */
 
 class PagePage_related extends XoopsObject
@@ -31,10 +30,10 @@ class PagePage_related extends XoopsObject
      */
     public function __construct()
     {
-        $this->initVar('related_id', XOBJ_DTYPE_INT, 0, false, 8);
-        $this->initVar('related_name', XOBJ_DTYPE_TXTBOX, '', false);
-        $this->initVar('related_domenu', XOBJ_DTYPE_INT, 1, false, 1);
-        $this->initVar('related_navigation', XOBJ_DTYPE_INT, 1, false, 1);
+        $this->initVar('related_id', DataType::INTEGER, 0, false, 8);
+        $this->initVar('related_name', DataType::STRING, '', false);
+        $this->initVar('related_domenu', DataType::INTEGER, 1, false, 1);
+        $this->initVar('related_navigation', DataType::INTEGER, 1, false, 1);
     }
 
     public function getValues($keys = null, $format = null, $maxDepth = null)

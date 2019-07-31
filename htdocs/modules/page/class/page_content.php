@@ -10,6 +10,7 @@
 */
 
 use Xoops\Core\Database\Connection;
+use Xoops\Core\Kernel\DataType;
 use Xoops\Core\Kernel\XoopsObject;
 use Xoops\Core\Kernel\XoopsPersistableObjectHandler;
 use Xoops\Core\Kernel\Handlers\XoopsUser;
@@ -17,8 +18,8 @@ use Xoops\Core\Kernel\Handlers\XoopsUser;
 /**
  * page module
  *
- * @copyright XOOPS Project (http://xoops.org)
- * @license   GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @copyright XOOPS Project (https://xoops.org)
+ * @license   GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  * @package   page
  * @since     2.6.0
  * @author    Mage Grégory (AKA Mage)
@@ -47,34 +48,34 @@ class PagePage_content extends XoopsObject
      */
     public function __construct()
     {
-        $this->initVar('content_id', XOBJ_DTYPE_INT, 0, false, 11);
-        $this->initVar('content_title', XOBJ_DTYPE_TXTBOX, '', false);
-        $this->initVar('content_shorttext', XOBJ_DTYPE_TXTAREA, '', false);
-        $this->initVar('content_text', XOBJ_DTYPE_TXTAREA, '', false);
-        $this->initVar('content_create', XOBJ_DTYPE_INT, time(), false, 10);
-        $this->initVar('content_author', XOBJ_DTYPE_INT, 0, false, 11);
-        $this->initVar('content_status', XOBJ_DTYPE_INT, 1, false, 1);
-        $this->initVar('content_hits', XOBJ_DTYPE_INT, 0, false, 10);
-        $this->initVar('content_rating', XOBJ_DTYPE_OTHER, 0, false, 10);
-        $this->initVar('content_votes', XOBJ_DTYPE_INT, 0, false, 11);
-        $this->initVar('content_comments', XOBJ_DTYPE_INT, 0, false, 11);
-        $this->initVar('content_mkeyword', XOBJ_DTYPE_TXTAREA, '', false);
-        $this->initVar('content_mdescription', XOBJ_DTYPE_TXTAREA, '', false);
-        $this->initVar('content_maindisplay', XOBJ_DTYPE_INT, 1, false, 1);
-        $this->initVar('content_weight', XOBJ_DTYPE_INT, 0, false, 5);
-        $this->initVar('content_dopdf', XOBJ_DTYPE_INT, 1, false, 1);
-        $this->initVar('content_doprint', XOBJ_DTYPE_INT, 1, false, 1);
-        $this->initVar('content_dosocial', XOBJ_DTYPE_INT, 1, false, 1);
-        $this->initVar('content_doauthor', XOBJ_DTYPE_INT, 1, false, 1);
-        $this->initVar('content_dodate', XOBJ_DTYPE_INT, 1, false, 1);
-        $this->initVar('content_domail', XOBJ_DTYPE_INT, 1, false, 1);
-        $this->initVar('content_dohits', XOBJ_DTYPE_INT, 1, false, 1);
-        $this->initVar('content_dorating', XOBJ_DTYPE_INT, 1, false, 1);
-        $this->initVar('content_docoms', XOBJ_DTYPE_INT, 1, false, 1);
-        $this->initVar('content_doncoms', XOBJ_DTYPE_INT, 1, false, 1);
-        $this->initVar('content_dotitle', XOBJ_DTYPE_INT, 1, false, 1);
-        $this->initVar('content_donotifications', XOBJ_DTYPE_INT, 1, false, 1);
-        $this->initVar('dohtml', XOBJ_DTYPE_INT, 1, false);
+        $this->initVar('content_id', DataType::INTEGER, 0, false, 11);
+        $this->initVar('content_title', DataType::STRING, '', false);
+        $this->initVar('content_shorttext', DataType::TEXT, '', false);
+        $this->initVar('content_text', DataType::TEXT, '', false);
+        $this->initVar('content_create', DataType::INTEGER, time(), false, 10);
+        $this->initVar('content_author', DataType::INTEGER, 0, false, 11);
+        $this->initVar('content_status', DataType::INTEGER, 1, false, 1);
+        $this->initVar('content_hits', DataType::INTEGER, 0, false, 10);
+        $this->initVar('content_rating', DataType::OTHER, 0, false, 10);
+        $this->initVar('content_votes', DataType::INTEGER, 0, false, 11);
+        $this->initVar('content_comments', DataType::INTEGER, 0, false, 11);
+        $this->initVar('content_mkeyword', DataType::TEXT, '', false);
+        $this->initVar('content_mdescription', DataType::TEXT, '', false);
+        $this->initVar('content_maindisplay', DataType::INTEGER, 1, false, 1);
+        $this->initVar('content_weight', DataType::INTEGER, 0, false, 5);
+        $this->initVar('content_dopdf', DataType::INTEGER, 1, false, 1);
+        $this->initVar('content_doprint', DataType::INTEGER, 1, false, 1);
+        $this->initVar('content_dosocial', DataType::INTEGER, 1, false, 1);
+        $this->initVar('content_doauthor', DataType::INTEGER, 1, false, 1);
+        $this->initVar('content_dodate', DataType::INTEGER, 1, false, 1);
+        $this->initVar('content_domail', DataType::INTEGER, 1, false, 1);
+        $this->initVar('content_dohits', DataType::INTEGER, 1, false, 1);
+        $this->initVar('content_dorating', DataType::INTEGER, 1, false, 1);
+        $this->initVar('content_docoms', DataType::INTEGER, 1, false, 1);
+        $this->initVar('content_doncoms', DataType::INTEGER, 1, false, 1);
+        $this->initVar('content_dotitle', DataType::INTEGER, 1, false, 1);
+        $this->initVar('content_donotifications', DataType::INTEGER, 1, false, 1);
+        $this->initVar('dohtml', DataType::INTEGER, 1, false);
     }
 
     public function getValues($keys = null, $format = null, $maxDepth = null)

@@ -18,7 +18,8 @@
 
 namespace Xoops\Core\Kernel\Handlers;
 
-use Xoops\Core\Kernel\Dtype;
+use Xoops\Core\Kernel\DataType;
+use Xoops\Core\Kernel\Format;
 use Xoops\Core\Kernel\XoopsObject;
 
 /**
@@ -27,9 +28,8 @@ use Xoops\Core\Kernel\XoopsObject;
  * @category  Xoops\Core\Kernel\Handlers\XoopsPrivateMessage
  * @package   Xoops\Core\Kernel
  * @author    Kazumi Ono <onokazu@xoops.org>
- * @copyright 2000-2015 XOOPS Project (http://xoops.org)
- * @license   GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
- * @link      http://xoops.org
+ * @copyright 2000-2019 XOOPS Project (https://xoops.org)
+ * @license   GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  */
 class XoopsPrivateMessage extends XoopsObject
 {
@@ -38,24 +38,24 @@ class XoopsPrivateMessage extends XoopsObject
      **/
     public function __construct()
     {
-        $this->initVar('msg_id', Dtype::TYPE_INTEGER, null, false);
-        $this->initVar('msg_image', Dtype::TYPE_OTHER, null, false, 100);
-        $this->initVar('subject', Dtype::TYPE_TEXT_BOX, null, true, 255);
-        $this->initVar('from_userid', Dtype::TYPE_INTEGER, null, true);
-        $this->initVar('to_userid', Dtype::TYPE_INTEGER, null, true);
-        $this->initVar('msg_time', Dtype::TYPE_OTHER, time(), false);
-        $this->initVar('msg_text', Dtype::TYPE_TEXT_AREA, null, true);
-        $this->initVar('read_msg', Dtype::TYPE_INTEGER, 0, false);
+        $this->initVar('msg_id', DataType::INTEGER, null, false);
+        $this->initVar('msg_image', DataType::OTHER, null, false, 100);
+        $this->initVar('subject', DataType::STRING, null, true, 255);
+        $this->initVar('from_userid', DataType::INTEGER, null, true);
+        $this->initVar('to_userid', DataType::INTEGER, null, true);
+        $this->initVar('msg_time', DataType::OTHER, time(), false);
+        $this->initVar('msg_text', DataType::TEXT, null, true);
+        $this->initVar('read_msg', DataType::INTEGER, 0, false);
     }
 
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
-    public function id($format = Dtype::FORMAT_NONE)
+    public function id($format = Format::NONE)
     {
         return $this->getVar('msg_id', $format);
     }
@@ -63,7 +63,7 @@ class XoopsPrivateMessage extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -75,7 +75,7 @@ class XoopsPrivateMessage extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -87,7 +87,7 @@ class XoopsPrivateMessage extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -99,7 +99,7 @@ class XoopsPrivateMessage extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -111,7 +111,7 @@ class XoopsPrivateMessage extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -123,7 +123,7 @@ class XoopsPrivateMessage extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -135,7 +135,7 @@ class XoopsPrivateMessage extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -147,7 +147,7 @@ class XoopsPrivateMessage extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */

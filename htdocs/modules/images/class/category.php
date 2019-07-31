@@ -13,15 +13,14 @@ use Xoops\Core\Database\Connection;
 use Xoops\Core\Kernel\Criteria;
 use Xoops\Core\Kernel\CriteriaCompo;
 use Xoops\Core\Kernel\CriteriaElement;
+use Xoops\Core\Kernel\DataType;
 use Xoops\Core\Kernel\XoopsObject;
 use Xoops\Core\Kernel\XoopsPersistableObjectHandler;
 
 /**
- * @copyright       XOOPS Project (http://xoops.org)
- * @license         GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @copyright       XOOPS Project (https://xoops.org)
+ * @license         GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  * @package         Images
- * @author
- * @version         $Id$
  */
 
 class ImagesCategory extends XoopsObject
@@ -31,15 +30,15 @@ class ImagesCategory extends XoopsObject
      */
     public function __construct()
     {
-        $this->initVar('imgcat_id', XOBJ_DTYPE_INT, 0, false, 5);
-        $this->initVar('imgcat_name', XOBJ_DTYPE_TXTBOX, '', true, 100);
-        $this->initVar('imgcat_maxsize', XOBJ_DTYPE_INT, 100000, false, 8);
-        $this->initVar('imgcat_maxwidth', XOBJ_DTYPE_INT, 128, false, 3);
-        $this->initVar('imgcat_maxheight', XOBJ_DTYPE_INT, 128, false, 3);
-        $this->initVar('imgcat_display', XOBJ_DTYPE_INT, 1, false, 1);
-        $this->initVar('imgcat_weight', XOBJ_DTYPE_INT, 0, false, 3);
-        $this->initVar('imgcat_type', XOBJ_DTYPE_TXTBOX, '', true, 1);
-        $this->initVar('imgcat_storetype', XOBJ_DTYPE_TXTBOX, 'file', true, 5);
+        $this->initVar('imgcat_id', DataType::INTEGER, 0, false, 5);
+        $this->initVar('imgcat_name', DataType::STRING, '', true, 100);
+        $this->initVar('imgcat_maxsize', DataType::INTEGER, 100000, false, 8);
+        $this->initVar('imgcat_maxwidth', DataType::INTEGER, 128, false, 3);
+        $this->initVar('imgcat_maxheight', DataType::INTEGER, 128, false, 3);
+        $this->initVar('imgcat_display', DataType::INTEGER, 1, false, 1);
+        $this->initVar('imgcat_weight', DataType::INTEGER, 0, false, 3);
+        $this->initVar('imgcat_type', DataType::STRING, '', true, 1);
+        $this->initVar('imgcat_storetype', DataType::STRING, 'file', true, 5);
     }
 }
 

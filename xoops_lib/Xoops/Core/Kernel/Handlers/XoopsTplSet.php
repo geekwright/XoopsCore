@@ -19,7 +19,7 @@
 
 namespace Xoops\Core\Kernel\Handlers;
 
-use Xoops\Core\Kernel\Dtype;
+use Xoops\Core\Kernel\DataType;
 use Xoops\Core\Kernel\XoopsObject;
 
 /**
@@ -28,9 +28,8 @@ use Xoops\Core\Kernel\XoopsObject;
  * @category  Xoops\Core\Kernel\Handlers\XoopsTplSet
  * @package   Xoops\Core\Kernel
  * @author    Kazumi Ono <onokazu@xoops.org>
- * @copyright 2000-2015 XOOPS Project (http://xoops.org)
- * @license   GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
- * @link      http://xoops.org
+ * @copyright 2000-2019 XOOPS Project (https://xoops.org)
+ * @license   GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  */
 class XoopsTplSet extends XoopsObject
 {
@@ -39,17 +38,17 @@ class XoopsTplSet extends XoopsObject
      **/
     public function __construct()
     {
-        $this->initVar('tplset_id', Dtype::TYPE_INTEGER, null, false);
-        $this->initVar('tplset_name', Dtype::TYPE_OTHER, null, false);
-        $this->initVar('tplset_desc', Dtype::TYPE_TEXT_BOX, null, false, 255);
-        $this->initVar('tplset_credits', Dtype::TYPE_TEXT_AREA, null, false);
-        $this->initVar('tplset_created', Dtype::TYPE_INTEGER, 0, false);
+        $this->initVar('tplset_id', DataType::INTEGER, null, false);
+        $this->initVar('tplset_name', DataType::OTHER, null, false);
+        $this->initVar('tplset_desc', DataType::STRING, null, false, 255);
+        $this->initVar('tplset_credits', DataType::TEXT, null, false);
+        $this->initVar('tplset_created', DataType::INTEGER, 0, false);
     }
 
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -61,7 +60,7 @@ class XoopsTplSet extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -73,7 +72,7 @@ class XoopsTplSet extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -85,7 +84,7 @@ class XoopsTplSet extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -97,7 +96,7 @@ class XoopsTplSet extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -109,7 +108,7 @@ class XoopsTplSet extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */

@@ -10,12 +10,13 @@
 */
 
 use Xoops\Core\Database\Connection;
+use Xoops\Core\Kernel\DataType;
 use Xoops\Core\Kernel\XoopsObject;
 use Xoops\Core\Kernel\XoopsPersistableObjectHandler;
 
 /**
- * @copyright       XOOPS Project (http://xoops.org)
- * @license         GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @copyright       2009-1019 XOOPS Project (https://xoops.org)
+ * @license         GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  * @package         Avatars
  * @author          trabis <lusopoemas@gmail.com>
  */
@@ -27,8 +28,8 @@ class AvatarsUserlink extends XoopsObject
      */
     public function __construct()
     {
-        $this->initVar('avatar_id', XOBJ_DTYPE_INT, null, true);
-        $this->initVar('user_id', XOBJ_DTYPE_INT, null, true);
+        $this->initVar('avatar_id', DataType::INTEGER, null, true);
+        $this->initVar('user_id', DataType::INTEGER, null, true);
     }
 }
 

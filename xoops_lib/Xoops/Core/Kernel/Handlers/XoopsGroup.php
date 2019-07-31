@@ -19,7 +19,8 @@
 
 namespace Xoops\Core\Kernel\Handlers;
 
-use Xoops\Core\Kernel\Dtype;
+use Xoops\Core\Kernel\DataType;
+use Xoops\Core\Kernel\Format;
 use Xoops\Core\Kernel\XoopsObject;
 
 /**
@@ -28,9 +29,8 @@ use Xoops\Core\Kernel\XoopsObject;
  * @category  Xoops\Core\Kernel\Handlers\XoopsGroup
  * @package   Xoops\Core\Kernel
  * @author    Kazumi Ono <onokazu@xoops.org>
- * @copyright 2000-2015 XOOPS Project (http://xoops.org)
- * @license   GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
- * @link      http://xoops.org
+ * @copyright 2000-2019 XOOPS Project (https://xoops.org)
+ * @license   GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  */
 class XoopsGroup extends XoopsObject
 {
@@ -39,20 +39,20 @@ class XoopsGroup extends XoopsObject
      */
     public function __construct()
     {
-        $this->initVar('groupid', Dtype::TYPE_INTEGER, null, false);
-        $this->initVar('name', Dtype::TYPE_TEXT_BOX, null, true, 100);
-        $this->initVar('description', Dtype::TYPE_TEXT_AREA, null, false);
-        $this->initVar('group_type', Dtype::TYPE_OTHER, null, false);
+        $this->initVar('groupid', DataType::INTEGER, null, false);
+        $this->initVar('name', DataType::STRING, null, true, 100);
+        $this->initVar('description', DataType::TEXT, null, false);
+        $this->initVar('group_type', DataType::OTHER, null, false);
     }
 
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
-    public function id($format = Dtype::FORMAT_NONE)
+    public function id($format = Format::NONE)
     {
         return $this->getVar('groupid', $format);
     }
@@ -60,7 +60,7 @@ class XoopsGroup extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -72,7 +72,7 @@ class XoopsGroup extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -84,7 +84,7 @@ class XoopsGroup extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -96,7 +96,7 @@ class XoopsGroup extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */

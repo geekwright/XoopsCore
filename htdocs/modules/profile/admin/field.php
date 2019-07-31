@@ -10,13 +10,13 @@
 */
 
 use Xmf\Request;
-use Xoops\Core\Kernel\Dtype;
+use Xoops\Core\Kernel\DataType;
 
 /**
  * Extended User Profile
  *
- * @copyright       2000-2016 XOOPS Project (http://xoops.org)
- * @license         GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @copyright       2000-2019 XOOPS Project (https://xoops.org)
+ * @license         GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  * @package         profile
  * @since           2.3.0
  * @author          Jan Pedersen
@@ -62,14 +62,14 @@ switch ($op) {
         $xoops->tpl()->assign('categories', $categories);
         unset($categories);
         $valuetypes = array(
-            Dtype::TYPE_ARRAY => _PROFILE_AM_ARRAY,
-            Dtype::TYPE_EMAIL => _PROFILE_AM_EMAIL,
-            Dtype::TYPE_INTEGER => _PROFILE_AM_INT,
-            Dtype::TYPE_TEXT_AREA => _PROFILE_AM_TXTAREA,
-            Dtype::TYPE_TEXT_BOX => _PROFILE_AM_TXTBOX,
-            Dtype::TYPE_URL => _PROFILE_AM_URL,
-            Dtype::TYPE_OTHER => _PROFILE_AM_OTHER,
-            Dtype::TYPE_MEDIUM_TIME => _PROFILE_AM_DATE
+            DataType::ARRAY => _PROFILE_AM_ARRAY,
+            DataType::EMAIL => _PROFILE_AM_EMAIL,
+            DataType::INTEGER => _PROFILE_AM_INT,
+            DataType::TEXT => _PROFILE_AM_TXTAREA,
+            DataType::STRING => _PROFILE_AM_TXTBOX,
+            DataType::URL => _PROFILE_AM_URL,
+            DataType::OTHER => _PROFILE_AM_OTHER,
+            DataType::MEDIUM_TIME => _PROFILE_AM_DATE
         );
 
         $fieldtypes = array(

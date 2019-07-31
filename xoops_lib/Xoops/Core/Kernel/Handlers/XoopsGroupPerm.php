@@ -19,7 +19,8 @@
 
 namespace Xoops\Core\Kernel\Handlers;
 
-use Xoops\Core\Kernel\Dtype;
+use Xoops\Core\Kernel\DataType;
+use Xoops\Core\Kernel\Format;
 use Xoops\Core\Kernel\XoopsObject;
 
 /**
@@ -30,9 +31,8 @@ use Xoops\Core\Kernel\XoopsObject;
  * @category  Xoops\Core\Kernel\Handlers\XoopsGroupPerm
  * @package   Xoops\Core\Kernel
  * @author    Kazumi Ono <onokazu@xoops.org>
- * @copyright 2000-2015 XOOPS Project (http://xoops.org)
- * @license   GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
- * @link      http://xoops.org
+ * @copyright 2000-2019 XOOPS Project (https://xoops.org)
+ * @license   GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  */
 class XoopsGroupPerm extends XoopsObject
 {
@@ -41,21 +41,21 @@ class XoopsGroupPerm extends XoopsObject
      */
     public function __construct()
     {
-        $this->initVar('gperm_id', Dtype::TYPE_INTEGER, null, false);
-        $this->initVar('gperm_groupid', Dtype::TYPE_INTEGER, null, false);
-        $this->initVar('gperm_itemid', Dtype::TYPE_INTEGER, null, false);
-        $this->initVar('gperm_modid', Dtype::TYPE_INTEGER, 0, false);
-        $this->initVar('gperm_name', Dtype::TYPE_OTHER, null, false);
+        $this->initVar('gperm_id', DataType::INTEGER, null, false);
+        $this->initVar('gperm_groupid', DataType::INTEGER, null, false);
+        $this->initVar('gperm_itemid', DataType::INTEGER, null, false);
+        $this->initVar('gperm_modid', DataType::INTEGER, 0, false);
+        $this->initVar('gperm_name', DataType::OTHER, null, false);
     }
 
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
-    public function id($format = Dtype::FORMAT_NONE)
+    public function id($format = Format::NONE)
     {
         return $this->getVar('gperm_id', $format);
     }
@@ -63,7 +63,7 @@ class XoopsGroupPerm extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -75,7 +75,7 @@ class XoopsGroupPerm extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -87,7 +87,7 @@ class XoopsGroupPerm extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -99,7 +99,7 @@ class XoopsGroupPerm extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -111,7 +111,7 @@ class XoopsGroupPerm extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */

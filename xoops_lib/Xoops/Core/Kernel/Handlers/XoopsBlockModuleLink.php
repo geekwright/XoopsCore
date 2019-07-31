@@ -11,7 +11,7 @@
 
 namespace Xoops\Core\Kernel\Handlers;
 
-use Xoops\Core\Kernel\Dtype;
+use Xoops\Core\Kernel\DataType;
 use Xoops\Core\Kernel\XoopsObject;
 
 /**
@@ -21,9 +21,8 @@ use Xoops\Core\Kernel\XoopsObject;
  * @package   Xoops\Core\Kernel
  * @author    Gregory Mage (AKA Mage)
  * @author    trabis <lusopoemas@gmail.com>
- * @copyright 2000-2015 XOOPS Project (http://xoops.org)
- * @license   GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
- * @link      http://xoops.org
+ * @copyright 2000-2019 XOOPS Project (https://xoops.org)
+ * @license   GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  */
 class XoopsBlockModuleLink extends XoopsObject
 {
@@ -32,7 +31,7 @@ class XoopsBlockModuleLink extends XoopsObject
      */
     public function __construct()
     {
-        $this->initVar('block_id', Dtype::TYPE_INTEGER);
-        $this->initVar('module_id', Dtype::TYPE_INTEGER);
+        $this->initVar('block_id', DataType::INTEGER);
+        $this->initVar('module_id', DataType::INTEGER);
     }
 }

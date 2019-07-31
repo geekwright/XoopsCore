@@ -12,13 +12,13 @@
 /**
  * Userconfigs
  *
- * @copyright       XOOPS Project (http://xoops.org)
- * @license         GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @copyright       XOOPS Project (https://xoops.org)
+ * @license         GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  * @author          trabis <lusopoemas@gmail.com>
- * @version         $Id$
  */
 
 use Xoops\Core\Database\Connection;
+use Xoops\Core\Kernel\DataType;
 use Xoops\Core\Kernel\XoopsObject;
 use Xoops\Core\Kernel\XoopsPersistableObjectHandler;
 
@@ -42,16 +42,16 @@ class UserconfigsItem extends XoopsObject
      */
     public function __construct()
     {
-        $this->initVar('conf_id', XOBJ_DTYPE_INT, null, false);
-        $this->initVar('conf_modid', XOBJ_DTYPE_INT, null, false);
-        $this->initVar('conf_uid', XOBJ_DTYPE_INT, null, false);
-        $this->initVar('conf_name', XOBJ_DTYPE_OTHER);
-        $this->initVar('conf_title', XOBJ_DTYPE_TXTBOX);
-        $this->initVar('conf_value', XOBJ_DTYPE_TXTAREA);
-        $this->initVar('conf_desc', XOBJ_DTYPE_OTHER);
-        $this->initVar('conf_formtype', XOBJ_DTYPE_OTHER);
-        $this->initVar('conf_valuetype', XOBJ_DTYPE_OTHER);
-        $this->initVar('conf_order', XOBJ_DTYPE_INT);
+        $this->initVar('conf_id', DataType::INTEGER, null, false);
+        $this->initVar('conf_modid', DataType::INTEGER, null, false);
+        $this->initVar('conf_uid', DataType::INTEGER, null, false);
+        $this->initVar('conf_name', DataType::OTHER);
+        $this->initVar('conf_title', DataType::STRING);
+        $this->initVar('conf_value', DataType::TEXT);
+        $this->initVar('conf_desc', DataType::OTHER);
+        $this->initVar('conf_formtype', DataType::OTHER);
+        $this->initVar('conf_valuetype', DataType::OTHER);
+        $this->initVar('conf_order', DataType::INTEGER);
     }
 
     /**

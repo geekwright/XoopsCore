@@ -12,13 +12,13 @@
 /**
  * Userconfigs
  *
- * @copyright       XOOPS Project (http://xoops.org)
- * @license         GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @copyright       XOOPS Project (https://xoops.org)
+ * @license         GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  * @author          trabis <lusopoemas@gmail.com>
- * @version         $Id$
  */
 
 use Xoops\Core\Database\Connection;
+use Xoops\Core\Kernel\DataType;
 use Xoops\Core\Kernel\XoopsObject;
 use Xoops\Core\Kernel\XoopsPersistableObjectHandler;
 
@@ -37,10 +37,10 @@ class UserconfigsOption extends XoopsObject
      */
     function __construct()
     {
-        $this->initVar('confop_id', XOBJ_DTYPE_INT, null);
-        $this->initVar('confop_name', XOBJ_DTYPE_TXTBOX, null, true, 255);
-        $this->initVar('confop_value', XOBJ_DTYPE_TXTBOX, null, true, 255);
-        $this->initVar('conf_id', XOBJ_DTYPE_INT, 0);
+        $this->initVar('confop_id', DataType::INTEGER, null);
+        $this->initVar('confop_name', DataType::STRING, null, true, 255);
+        $this->initVar('confop_value', DataType::STRING, null, true, 255);
+        $this->initVar('conf_id', DataType::INTEGER, 0);
     }
 
     /**

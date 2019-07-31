@@ -13,6 +13,7 @@ namespace XoopsModules\Publisher;
  */
 
 use RuntimeException;
+use Xoops\Core\Kernel\DataType;
 use Xoops\Core\Kernel\XoopsObject;
 use XoopsLocale;
 use XoopsMediaUploader;
@@ -25,7 +26,6 @@ use XoopsModules\Publisher;
  * @since           1.0
  * @author          trabis <lusopoemas@gmail.com>
  * @author          The SmartFactory <www.smartfactory.ca>
- * @version         $Id$
  */
 require_once \dirname(__DIR__) . '/include/common.php';
 
@@ -52,17 +52,17 @@ class File extends XoopsObject
     public function __construct($id = null)
     {
         $this->helper = Helper::getInstance();
-        $this->initVar('fileid', \XOBJ_DTYPE_INT, 0, false);
-        $this->initVar('itemid', \XOBJ_DTYPE_INT, null, true);
-        $this->initVar('name', \XOBJ_DTYPE_TXTBOX, null, true, 255);
-        $this->initVar('description', \XOBJ_DTYPE_TXTBOX, null, false, 255);
-        $this->initVar('filename', \XOBJ_DTYPE_TXTBOX, null, true, 255);
-        $this->initVar('mimetype', \XOBJ_DTYPE_TXTBOX, null, true, 64);
-        $this->initVar('uid', \XOBJ_DTYPE_INT, 0, false);
-        $this->initVar('datesub', \XOBJ_DTYPE_INT, null, false);
-        $this->initVar('status', \XOBJ_DTYPE_INT, 1, false);
-        $this->initVar('notifypub', \XOBJ_DTYPE_INT, 0, false);
-        $this->initVar('counter', \XOBJ_DTYPE_INT, null, false);
+        $this->initVar('fileid', DataType::INTEGER, 0, false);
+        $this->initVar('itemid', DataType::INTEGER, null, true);
+        $this->initVar('name', DataType::STRING, null, true, 255);
+        $this->initVar('description', DataType::STRING, null, false, 255);
+        $this->initVar('filename', DataType::STRING, null, true, 255);
+        $this->initVar('mimetype', DataType::STRING, null, true, 64);
+        $this->initVar('uid', DataType::INTEGER, 0, false);
+        $this->initVar('datesub', DataType::INTEGER, null, false);
+        $this->initVar('status', DataType::INTEGER, 1, false);
+        $this->initVar('notifypub', DataType::INTEGER, 0, false);
+        $this->initVar('counter', DataType::INTEGER, null, false);
         if (isset($id)) {
             $file = $this->helper->getFileHandler()->get($id);
             foreach ($file->vars as $k => $v) {

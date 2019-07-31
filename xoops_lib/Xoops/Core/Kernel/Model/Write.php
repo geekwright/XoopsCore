@@ -12,7 +12,7 @@
 namespace Xoops\Core\Kernel\Model;
 
 use Xoops\Core\Kernel\CriteriaElement;
-use Xoops\Core\Kernel\Dtype;
+use Xoops\Core\Kernel\DataType;
 use Xoops\Core\Kernel\XoopsObject;
 use Xoops\Core\Kernel\XoopsModelAbstract;
 
@@ -47,7 +47,7 @@ class Write extends XoopsModelAbstract
             if (!$v["changed"]) {
                 continue;
             }
-            $object->cleanVars[$k] = Dtype::cleanVar($object, $k);
+            $object->cleanVars[$k] = DataType::cleanVar($object, $k);
         }
         $object->unsetDirty();
         $errors = $object->getErrors();
@@ -97,7 +97,7 @@ class Write extends XoopsModelAbstract
             if ($force) {
                 $this->handler->db2->setForce($force);
             }
-            if (!$this->handler->db2->insert($this->handler->table, $object->cleanVars)) {
+            if (!$this->handler->db2->insert($this->handler->table, $object->cleanVars, $object->cleanTypes)) {
                 return false;
             }
             if (!$object->getVar($this->handler->keyName) && $object_id = $this->handler->db2->lastInsertId()) {
@@ -109,7 +109,8 @@ class Write extends XoopsModelAbstract
                 $result = $this->handler->db2->update(
                     $this->handler->table,
                     $object->cleanVars,
-                    array($this->handler->keyName => $object->getVar($this->handler->keyName))
+                    [$this->handler->keyName => $object->getVar($this->handler->keyName)],
+                    $object->cleanTypes
                 );
                 if (!$result && (int)($this->handler->db2->errorCode())) {
                     return false;

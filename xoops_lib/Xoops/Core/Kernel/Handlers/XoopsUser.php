@@ -19,7 +19,8 @@
 namespace Xoops\Core\Kernel\Handlers;
 
 use Xoops\Core\Kernel\Criteria;
-use Xoops\Core\Kernel\Dtype;
+use Xoops\Core\Kernel\DataType;
+use Xoops\Core\Kernel\Format;
 use Xoops\Core\Kernel\XoopsObject;
 
 /**
@@ -28,9 +29,8 @@ use Xoops\Core\Kernel\XoopsObject;
  * @category  Xoops\Core\Kernel\Handlers\XoopsUser
  * @package   Xoops\Core\Kernel
  * @author    Kazumi Ono <onokazu@xoops.org>
- * @copyright 2000-2015 XOOPS Project (http://xoops.org)
- * @license   GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
- * @link      http://xoops.org
+ * @copyright 2000-2019 XOOPS Project (https://xoops.org)
+ * @license   GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  */
 class XoopsUser extends XoopsObject
 {
@@ -58,39 +58,39 @@ class XoopsUser extends XoopsObject
      */
     public function __construct($id = null)
     {
-        $this->initVar('uid', Dtype::TYPE_INTEGER, null, false);
-        $this->initVar('name', Dtype::TYPE_TEXT_BOX, null, false, 60);
-        $this->initVar('uname', Dtype::TYPE_TEXT_BOX, null, true, 25);
-        $this->initVar('email', Dtype::TYPE_TEXT_BOX, null, true, 60);
-        $this->initVar('url', Dtype::TYPE_TEXT_BOX, null, false, 100);
-        $this->initVar('user_avatar', Dtype::TYPE_TEXT_BOX, null, false, 30);
-        $this->initVar('user_regdate', Dtype::TYPE_INTEGER, null, false);
-        $this->initVar('user_icq', Dtype::TYPE_TEXT_BOX, null, false, 15);
-        $this->initVar('user_from', Dtype::TYPE_TEXT_BOX, null, false, 100);
-        $this->initVar('user_sig', Dtype::TYPE_TEXT_AREA, null, false, null);
-        $this->initVar('user_viewemail', Dtype::TYPE_INTEGER, 0, false);
-        $this->initVar('actkey', Dtype::TYPE_OTHER, null, false);
-        $this->initVar('user_aim', Dtype::TYPE_TEXT_BOX, null, false, 18);
-        $this->initVar('user_yim', Dtype::TYPE_TEXT_BOX, null, false, 25);
-        $this->initVar('user_msnm', Dtype::TYPE_TEXT_BOX, null, false, 100);
-        $this->initVar('pass', Dtype::TYPE_TEXT_BOX, null, false, 255);
-        $this->initVar('posts', Dtype::TYPE_INTEGER, null, false);
-        $this->initVar('attachsig', Dtype::TYPE_INTEGER, 0, false);
-        $this->initVar('rank', Dtype::TYPE_INTEGER, 0, false);
-        $this->initVar('level', Dtype::TYPE_INTEGER, 0, false);
-        $this->initVar('theme', Dtype::TYPE_OTHER, null, false);
-        $this->initVar('timezone', Dtype::TYPE_TIMEZONE, 'UTC', 32);
-        $this->initVar('last_login', Dtype::TYPE_INTEGER, 0, false);
-        $this->initVar('last_pass_change', Dtype::TYPE_DATETIME, 0, false);
-        $this->initVar('umode', Dtype::TYPE_OTHER, null, false);
-        $this->initVar('uorder', Dtype::TYPE_INTEGER, 1, false);
+        $this->initVar('uid', DataType::INTEGER, null, false);
+        $this->initVar('name', DataType::STRING, null, false, 60);
+        $this->initVar('uname', DataType::STRING, null, true, 25);
+        $this->initVar('email', DataType::STRING, null, true, 60);
+        $this->initVar('url', DataType::STRING, null, false, 100);
+        $this->initVar('user_avatar', DataType::STRING, null, false, 30);
+        $this->initVar('user_regdate', DataType::INTEGER, null, false);
+        $this->initVar('user_icq', DataType::STRING, null, false, 15);
+        $this->initVar('user_from', DataType::STRING, null, false, 100);
+        $this->initVar('user_sig', DataType::TEXT, null, false, null);
+        $this->initVar('user_viewemail', DataType::INTEGER, 0, false);
+        $this->initVar('actkey', DataType::OTHER, null, false);
+        $this->initVar('user_aim', DataType::STRING, null, false, 18);
+        $this->initVar('user_yim', DataType::STRING, null, false, 25);
+        $this->initVar('user_msnm', DataType::STRING, null, false, 100);
+        $this->initVar('pass', DataType::STRING, null, false, 255);
+        $this->initVar('posts', DataType::INTEGER, null, false);
+        $this->initVar('attachsig', DataType::INTEGER, 0, false);
+        $this->initVar('rank', DataType::INTEGER, 0, false);
+        $this->initVar('level', DataType::INTEGER, 0, false);
+        $this->initVar('theme', DataType::OTHER, null, false);
+        $this->initVar('timezone', DataType::TIMEZONE, 'UTC', 32);
+        $this->initVar('last_login', DataType::INTEGER, 0, false);
+        $this->initVar('last_pass_change', DataType::DATETIME, 0, false);
+        $this->initVar('umode', DataType::OTHER, null, false);
+        $this->initVar('uorder', DataType::INTEGER, 1, false);
         // RMV-NOTIFY
-        $this->initVar('notify_method', Dtype::TYPE_OTHER, 1, false);
-        $this->initVar('notify_mode', Dtype::TYPE_OTHER, 0, false);
-        $this->initVar('user_occ', Dtype::TYPE_TEXT_BOX, null, false, 100);
-        $this->initVar('bio', Dtype::TYPE_TEXT_AREA, null, false, null);
-        $this->initVar('user_intrest', Dtype::TYPE_TEXT_BOX, null, false, 150);
-        $this->initVar('user_mailok', Dtype::TYPE_INTEGER, 1, false);
+        $this->initVar('notify_method', DataType::OTHER, 1, false);
+        $this->initVar('notify_mode', DataType::OTHER, 0, false);
+        $this->initVar('user_occ', DataType::STRING, null, false, 100);
+        $this->initVar('bio', DataType::TEXT, null, false, null);
+        $this->initVar('user_intrest', DataType::STRING, null, false, 150);
+        $this->initVar('user_mailok', DataType::INTEGER, 1, false);
         // for backward compatibility
         if (isset($id)) {
             if (is_array($id)) {
@@ -269,7 +269,7 @@ class XoopsUser extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -281,11 +281,11 @@ class XoopsUser extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
-    public function id($format = Dtype::FORMAT_NONE)
+    public function id($format = Format::NONE)
     {
         return $this->getVar('uid', $format);
     }
@@ -293,7 +293,7 @@ class XoopsUser extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -305,7 +305,7 @@ class XoopsUser extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -317,7 +317,7 @@ class XoopsUser extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -329,7 +329,7 @@ class XoopsUser extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -341,7 +341,7 @@ class XoopsUser extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -353,7 +353,7 @@ class XoopsUser extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -365,7 +365,7 @@ class XoopsUser extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -377,7 +377,7 @@ class XoopsUser extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -389,7 +389,7 @@ class XoopsUser extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -401,7 +401,7 @@ class XoopsUser extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -413,7 +413,7 @@ class XoopsUser extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -425,7 +425,7 @@ class XoopsUser extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -437,7 +437,7 @@ class XoopsUser extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -449,7 +449,7 @@ class XoopsUser extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -461,7 +461,7 @@ class XoopsUser extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -473,7 +473,7 @@ class XoopsUser extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -485,7 +485,7 @@ class XoopsUser extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -497,7 +497,7 @@ class XoopsUser extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -509,7 +509,7 @@ class XoopsUser extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -521,7 +521,7 @@ class XoopsUser extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -533,7 +533,7 @@ class XoopsUser extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -545,7 +545,7 @@ class XoopsUser extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -557,7 +557,7 @@ class XoopsUser extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -569,7 +569,7 @@ class XoopsUser extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -581,7 +581,7 @@ class XoopsUser extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -593,7 +593,7 @@ class XoopsUser extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -605,7 +605,7 @@ class XoopsUser extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */

@@ -12,15 +12,15 @@
 /**
  * plugins module
  *
+ * @author          trabis <lusopoemas@gmail.com>
  * @copyright       2013-2019 XOOPS Project (https://xoops.org)
  * @license         GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
- * @author          trabis <lusopoemas@gmail.com>
  */
 
 use Xoops\Core\Database\Connection;
 use Xoops\Core\Kernel\XoopsObject;
 use Xoops\Core\Kernel\XoopsPersistableObjectHandler;
-use Xoops\Core\Kernel\Dtype;
+use Xoops\Core\Kernel\DataType;
 use Xoops\Core\Kernel\Criteria;
 use Xoops\Core\Kernel\CriteriaCompo;
 use Doctrine\DBAL\FetchMode;
@@ -32,11 +32,11 @@ class PluginsPlugin extends XoopsObject
      */
     public function __construct()
     {
-        $this->initVar('plugin_id', Dtype::TYPE_INTEGER, null, false);
-        $this->initVar('plugin_caller', Dtype::TYPE_TEXT_BOX, null, false);
-        $this->initVar('plugin_listener', Dtype::TYPE_TEXT_BOX, null, false);
-        $this->initVar('plugin_status', Dtype::TYPE_INTEGER, null, 1);
-        $this->initVar('plugin_order', Dtype::TYPE_INTEGER, null, false, 0);
+        $this->initVar('plugin_id', DataType::INTEGER, null, false);
+        $this->initVar('plugin_caller', DataType::STRING, null, false);
+        $this->initVar('plugin_listener', DataType::STRING, null, false);
+        $this->initVar('plugin_status', DataType::INTEGER, null, 1);
+        $this->initVar('plugin_order', DataType::INTEGER, null, false, 0);
     }
 }
 

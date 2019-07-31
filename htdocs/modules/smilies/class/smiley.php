@@ -12,7 +12,7 @@
 use Xoops\Core\Database\Connection;
 use Xoops\Core\Kernel\Criteria;
 use Xoops\Core\Kernel\CriteriaCompo;
-use Xoops\Core\Kernel\Dtype;
+use Xoops\Core\Kernel\DataType;
 use Xoops\Core\Kernel\XoopsObject;
 use Xoops\Core\Kernel\XoopsPersistableObjectHandler;
 
@@ -22,9 +22,8 @@ use Xoops\Core\Kernel\XoopsPersistableObjectHandler;
  * @category  Modules\Smilies
  * @package   Modules
  * @author    Unknown <nobody@localhost.local>
- * @copyright 2013-2015 The XOOPS Project https://github.com/XOOPS/XoopsCore
- * @license   GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
- * @link      http://xoops.org
+ * @copyright 2013-2019 The XOOPS Project https://xoops.org
+ * @license   GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  */
 class SmiliesSmiley extends XoopsObject
 {
@@ -33,11 +32,11 @@ class SmiliesSmiley extends XoopsObject
      */
     public function __construct()
     {
-        $this->initVar('smiley_id', Dtype::TYPE_INTEGER, null, false);
-        $this->initVar('smiley_code', Dtype::TYPE_TEXT_BOX, null, true, 100);
-        $this->initVar('smiley_url', Dtype::TYPE_OTHER, null, false, 30);
-        $this->initVar('smiley_emotion', Dtype::TYPE_TEXT_BOX, null, true, 100);
-        $this->initVar('smiley_display', Dtype::TYPE_INTEGER, 1, false);
+        $this->initVar('smiley_id', DataType::INTEGER, null, false);
+        $this->initVar('smiley_code', DataType::STRING, null, true, 100);
+        $this->initVar('smiley_url', DataType::OTHER, null, false, 30);
+        $this->initVar('smiley_emotion', DataType::STRING, null, true, 100);
+        $this->initVar('smiley_display', DataType::INTEGER, 1, false);
     }
 }
 
@@ -47,9 +46,8 @@ class SmiliesSmiley extends XoopsObject
  * @category  Modules\Smilies
  * @package   Modules
  * @author    Unknown <nobody@localhost.local>
- * @copyright 2013-2015 The XOOPS Project https://github.com/XOOPS/XoopsCore
- * @license   GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
- * @link      http://xoops.org
+ * @copyright 2013-2015 The XOOPS Project https://xoops.org
+ * @license   GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  */
 class SmiliesSmileyHandler extends XoopsPersistableObjectHandler
 {

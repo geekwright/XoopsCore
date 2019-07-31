@@ -19,7 +19,8 @@
 
 namespace Xoops\Core\Kernel\Handlers;
 
-use Xoops\Core\Kernel\Dtype;
+use Xoops\Core\Kernel\DataType;
+use Xoops\Core\Kernel\Format;
 use Xoops\Core\Kernel\XoopsObject;
 
 /**
@@ -28,9 +29,8 @@ use Xoops\Core\Kernel\XoopsObject;
  * @category  Xoops\Core\Kernel\XoopsTplFile
  * @package   Xoops\Core\Kernel
  * @author    Kazumi Ono <onokazu@xoops.org>
- * @copyright 2000-2015 XOOPS Project (http://xoops.org)
- * @license   GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
- * @link      http://xoops.org
+ * @copyright 2000-2019 XOOPS Project (https://xoops.org)
+ * @license   GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  */
 class XoopsTplFile extends XoopsObject
 {
@@ -39,26 +39,26 @@ class XoopsTplFile extends XoopsObject
      */
     public function __construct()
     {
-        $this->initVar('tpl_id', Dtype::TYPE_INTEGER, null, false);
-        $this->initVar('tpl_refid', Dtype::TYPE_INTEGER, 0, false);
-        $this->initVar('tpl_tplset', Dtype::TYPE_OTHER, null, false);
-        $this->initVar('tpl_file', Dtype::TYPE_TEXT_BOX, null, true, 100);
-        $this->initVar('tpl_desc', Dtype::TYPE_TEXT_BOX, null, false, 100);
-        $this->initVar('tpl_lastmodified', Dtype::TYPE_INTEGER, 0, false);
-        $this->initVar('tpl_lastimported', Dtype::TYPE_INTEGER, 0, false);
-        $this->initVar('tpl_module', Dtype::TYPE_OTHER, null, false);
-        $this->initVar('tpl_type', Dtype::TYPE_OTHER, null, false);
-        $this->initVar('tpl_source', Dtype::TYPE_SOURCE, null, false);
+        $this->initVar('tpl_id', DataType::INTEGER, null, false);
+        $this->initVar('tpl_refid', DataType::INTEGER, 0, false);
+        $this->initVar('tpl_tplset', DataType::OTHER, null, false);
+        $this->initVar('tpl_file', DataType::STRING, null, true, 100);
+        $this->initVar('tpl_desc', DataType::STRING, null, false, 100);
+        $this->initVar('tpl_lastmodified', DataType::INTEGER, 0, false);
+        $this->initVar('tpl_lastimported', DataType::INTEGER, 0, false);
+        $this->initVar('tpl_module', DataType::OTHER, null, false);
+        $this->initVar('tpl_type', DataType::OTHER, null, false);
+        $this->initVar('tpl_source', DataType::SOURCE, null, false);
     }
 
     /**
      * id
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
-    public function id($format = Dtype::FORMAT_NONE)
+    public function id($format = Format::NONE)
     {
         return $this->getVar('tpl_id', $format);
     }
@@ -66,7 +66,7 @@ class XoopsTplFile extends XoopsObject
     /**
      * tpl_id
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -78,7 +78,7 @@ class XoopsTplFile extends XoopsObject
     /**
      * tpl_refid
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -90,7 +90,7 @@ class XoopsTplFile extends XoopsObject
     /**
      * tpl_tplset
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -102,7 +102,7 @@ class XoopsTplFile extends XoopsObject
     /**
      * tpl_file
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -114,7 +114,7 @@ class XoopsTplFile extends XoopsObject
     /**
      * tpl_desc
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -126,7 +126,7 @@ class XoopsTplFile extends XoopsObject
     /**
      * tpl_lastmodified
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -138,7 +138,7 @@ class XoopsTplFile extends XoopsObject
     /**
      * tpl_lastimported
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -150,7 +150,7 @@ class XoopsTplFile extends XoopsObject
     /**
      * tpl_module
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -162,7 +162,7 @@ class XoopsTplFile extends XoopsObject
     /**
      * tpl_type
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -174,7 +174,7 @@ class XoopsTplFile extends XoopsObject
     /**
      * tpl_source
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */

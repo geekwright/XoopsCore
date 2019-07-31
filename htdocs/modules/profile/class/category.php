@@ -10,15 +10,15 @@
 */
 
 use Xoops\Core\Database\Connection;
-use Xoops\Core\Kernel\Dtype;
+use Xoops\Core\Kernel\DataType;
 use Xoops\Core\Kernel\XoopsObject;
 use Xoops\Core\Kernel\XoopsPersistableObjectHandler;
 
 /**
  * Extended User Profile
  *
- * @copyright       2000-2016 XOOPS Project (http://xoops.org)
- * @license         GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @copyright       2000-2019 XOOPS Project (https://xoops.org)
+ * @license         GNU GPL 2 or later (httpss://www.gnu.org/licenses/gpl-2.0.html)
  * @package         profile
  * @since           2.3.0
  * @author          Jan Pedersen
@@ -32,10 +32,10 @@ class ProfileCategory extends XoopsObject
      */
     public function __construct()
     {
-        $this->initVar('cat_id', Dtype::TYPE_INTEGER, null, true);
-        $this->initVar('cat_title', Dtype::TYPE_TEXT_BOX);
-        $this->initVar('cat_description', Dtype::TYPE_TEXT_AREA);
-        $this->initVar('cat_weight', Dtype::TYPE_INTEGER);
+        $this->initVar('cat_id', DataType::INTEGER, null, true);
+        $this->initVar('cat_title', DataType::STRING);
+        $this->initVar('cat_description', DataType::TEXT);
+        $this->initVar('cat_weight', DataType::INTEGER);
     }
 }
 

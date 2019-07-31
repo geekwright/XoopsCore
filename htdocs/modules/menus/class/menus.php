@@ -10,16 +10,16 @@
  */
 
 use Xoops\Core\Database\Connection;
+use Xoops\Core\Kernel\DataType;
 use Xoops\Core\Kernel\XoopsObject;
 use Xoops\Core\Kernel\XoopsPersistableObjectHandler;
 
 /**
- * @copyright       XOOPS Project (http://xoops.org)
- * @license         GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @copyright       XOOPS Project (https://xoops.org)
+ * @license         GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  * @package         Menus
  * @since           1.0
  * @author          trabis <lusopoemas@gmail.com>
- * @version         $Id$
  */
 
 class MenusMenus extends XoopsObject
@@ -29,8 +29,8 @@ class MenusMenus extends XoopsObject
      */
     public function __construct()
     {
-        $this->initVar("id", XOBJ_DTYPE_INT);
-        $this->initVar('title', XOBJ_DTYPE_TXTBOX);
+        $this->initVar("id", DataType::INTEGER);
+        $this->initVar('title', DataType::STRING);
     }
 }
 

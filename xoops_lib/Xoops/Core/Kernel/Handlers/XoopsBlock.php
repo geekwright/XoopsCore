@@ -11,7 +11,8 @@
 
 namespace Xoops\Core\Kernel\Handlers;
 
-use Xoops\Core\Kernel\Dtype;
+use Xoops\Core\Kernel\DataType;
+use Xoops\Core\Kernel\Format;
 use Xoops\Core\Kernel\XoopsObject;
 use \Xoops\Core\Text\Sanitizer;
 
@@ -23,9 +24,8 @@ use \Xoops\Core\Text\Sanitizer;
  * @author    Kazumi Ono (AKA onokazu) http://www.myweb.ne.jp/, http://jp.xoops.org/
  * @author    Gregory Mage (AKA Mage)
  * @author    trabis <lusopoemas@gmail.com>
- * @copyright 2000-2015 XOOPS Project (http://xoops.org)
- * @license   GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
- * @link      http://xoops.org
+ * @copyright 2000-2019 XOOPS Project (https://xoops.org)
+ * @license   GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  */
 class XoopsBlock extends XoopsObject
 {
@@ -47,27 +47,27 @@ class XoopsBlock extends XoopsObject
      */
     public function __construct($id = null)
     {
-        $this->initVar('bid', Dtype::TYPE_INTEGER, null, false);
-        $this->initVar('mid', Dtype::TYPE_INTEGER, 0, false);
-        $this->initVar('func_num', Dtype::TYPE_INTEGER, 0, false);
-        $this->initVar('options', Dtype::TYPE_TEXT_BOX, null, false, 255);
-        $this->initVar('name', Dtype::TYPE_TEXT_BOX, null, true, 150);
-        //$this->initVar('position', Dtype::TYPE_INTEGER, 0, false);
-        $this->initVar('title', Dtype::TYPE_TEXT_BOX, null, false, 150);
-        $this->initVar('content', Dtype::TYPE_TEXT_AREA, null, false);
-        $this->initVar('side', Dtype::TYPE_INTEGER, 0, false);
-        $this->initVar('weight', Dtype::TYPE_INTEGER, 0, false);
-        $this->initVar('visible', Dtype::TYPE_INTEGER, 0, false);
-        $this->initVar('block_type', Dtype::TYPE_OTHER, null, false);
-        $this->initVar('c_type', Dtype::TYPE_OTHER, null, false);
-        $this->initVar('isactive', Dtype::TYPE_INTEGER, null, false);
-        $this->initVar('dirname', Dtype::TYPE_TEXT_BOX, null, false, 50);
-        $this->initVar('func_file', Dtype::TYPE_TEXT_BOX, null, false, 50);
-        $this->initVar('show_func', Dtype::TYPE_TEXT_BOX, null, false, 50);
-        $this->initVar('edit_func', Dtype::TYPE_TEXT_BOX, null, false, 50);
-        $this->initVar('template', Dtype::TYPE_OTHER, null, false);
-        $this->initVar('bcachetime', Dtype::TYPE_INTEGER, 0, false);
-        $this->initVar('last_modified', Dtype::TYPE_INTEGER, 0, false);
+        $this->initVar('bid', DataType::INTEGER, null, false);
+        $this->initVar('mid', DataType::INTEGER, 0, false);
+        $this->initVar('func_num', DataType::INTEGER, 0, false);
+        $this->initVar('options', DataType::STRING, null, false, 255);
+        $this->initVar('name', DataType::STRING, null, true, 150);
+        //$this->initVar('position', DataType::INTEGER, 0, false);
+        $this->initVar('title', DataType::STRING, null, false, 150);
+        $this->initVar('content', DataType::TEXT, null, false);
+        $this->initVar('side', DataType::INTEGER, 0, false);
+        $this->initVar('weight', DataType::INTEGER, 0, false);
+        $this->initVar('visible', DataType::INTEGER, 0, false);
+        $this->initVar('block_type', DataType::OTHER, null, false);
+        $this->initVar('c_type', DataType::OTHER, null, false);
+        $this->initVar('isactive', DataType::INTEGER, null, false);
+        $this->initVar('dirname', DataType::STRING, null, false, 50);
+        $this->initVar('func_file', DataType::STRING, null, false, 50);
+        $this->initVar('show_func', DataType::STRING, null, false, 50);
+        $this->initVar('edit_func', DataType::STRING, null, false, 50);
+        $this->initVar('template', DataType::OTHER, null, false);
+        $this->initVar('bcachetime', DataType::INTEGER, 0, false);
+        $this->initVar('last_modified', DataType::INTEGER, 0, false);
 
         $xoops = \Xoops::getInstance();
 
@@ -89,7 +89,7 @@ class XoopsBlock extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -101,7 +101,7 @@ class XoopsBlock extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -113,7 +113,7 @@ class XoopsBlock extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -125,7 +125,7 @@ class XoopsBlock extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -137,7 +137,7 @@ class XoopsBlock extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -149,7 +149,7 @@ class XoopsBlock extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -161,7 +161,7 @@ class XoopsBlock extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -173,7 +173,7 @@ class XoopsBlock extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -185,7 +185,7 @@ class XoopsBlock extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -197,7 +197,7 @@ class XoopsBlock extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -209,7 +209,7 @@ class XoopsBlock extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -221,7 +221,7 @@ class XoopsBlock extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -233,7 +233,7 @@ class XoopsBlock extends XoopsObject
     /**
      * getter custom block type XoopsBlock::CUSTOM_xxxx constant
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -245,7 +245,7 @@ class XoopsBlock extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -257,7 +257,7 @@ class XoopsBlock extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -269,7 +269,7 @@ class XoopsBlock extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -281,7 +281,7 @@ class XoopsBlock extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -293,7 +293,7 @@ class XoopsBlock extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -305,7 +305,7 @@ class XoopsBlock extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -317,7 +317,7 @@ class XoopsBlock extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -329,7 +329,7 @@ class XoopsBlock extends XoopsObject
     /**
      * getter
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      *
      * @return mixed
      */
@@ -341,7 +341,7 @@ class XoopsBlock extends XoopsObject
     /**
      * return the content of the block for output
      *
-     * @param string $format Dtype::FORMAT_xxxx constant
+     * @param string $format Format::xxxx constant
      * @param string $c_type type of custom content, a XoopsBlock::CUSTOM_xxxx constant
      *                            H : custom HTML block
      *                            P : custom PHP block
@@ -352,13 +352,13 @@ class XoopsBlock extends XoopsObject
      */
     public function getContent($format = 's', $c_type = 'T')
     {
-        $format = strtolower($format);
+        $format .= ' ';
         $c_type = strtoupper($c_type);
-        switch ($format) {
-            case Dtype::FORMAT_SHOW:
+        switch (strtolower($format[0])) {
+            case Format::SHOW:
             case 's':
                 // apply c_type rules for content display
-                $content = $this->getVar('content', Dtype::FORMAT_NONE);
+                $content = $this->getVar('content', Format::NONE);
                 switch ($c_type) {
                     case XoopsBlock::CUSTOM_HTML:
                         return $this->convertSiteURL($content);
@@ -377,12 +377,12 @@ class XoopsBlock extends XoopsObject
                         return $myts->filterForDisplay($this->convertSiteURL($content), 1, 0);
                 }
                 break;
-            case Dtype::FORMAT_EDIT:
+            case Format::EDIT:
             case 'e':
-                return $this->getVar('content', Dtype::FORMAT_EDIT);
+                return $this->getVar('content', Format::EDIT);
                 break;
             default:
-                return $this->getVar('content', Dtype::FORMAT_NONE);
+                return $this->getVar('content', Format::NONE);
                 break;
         }
     }

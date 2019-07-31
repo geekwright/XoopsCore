@@ -10,15 +10,15 @@
 */
 
 use Xoops\Core\Database\Connection;
-use Xoops\Core\Kernel\Dtype;
+use Xoops\Core\Kernel\DataType;
 use Xoops\Core\Kernel\XoopsObject;
 use Xoops\Core\Kernel\XoopsPersistableObjectHandler;
 
 /**
  * UserrankRank and handler
  *
- * @copyright       2000-2015 XOOPS Project (http://xoops.org)
- * @license         GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @copyright       2000-2019 XOOPS Project (https://xoops.org)
+ * @license         GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  * @package         userrank
  * @since           2.6.0
  * @author          Gregory Mage (AKA Mage)
@@ -31,12 +31,12 @@ class UserrankRank extends XoopsObject
      */
     public function __construct()
     {
-        $this->initVar('rank_id', Dtype::TYPE_INTEGER, null, false, 5);
-        $this->initVar('rank_title', Dtype::TYPE_TEXT_BOX, null, false);
-        $this->initVar('rank_min', Dtype::TYPE_INTEGER, null, false, 8);
-        $this->initVar('rank_max', Dtype::TYPE_INTEGER, null, false, 8);
-        $this->initVar('rank_special', Dtype::TYPE_INTEGER, null, false, 1);
-        $this->initVar('rank_image', Dtype::TYPE_TEXT_BOX, null, false);
+        $this->initVar('rank_id', DataType::INTEGER, null, false, 5);
+        $this->initVar('rank_title', DataType::STRING, null, false);
+        $this->initVar('rank_min', DataType::INTEGER, null, false, 8);
+        $this->initVar('rank_max', DataType::INTEGER, null, false, 8);
+        $this->initVar('rank_special', DataType::INTEGER, null, false, 1);
+        $this->initVar('rank_image', DataType::STRING, null, false);
     }
 
     /**

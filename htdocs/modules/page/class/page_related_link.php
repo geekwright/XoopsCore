@@ -10,18 +10,17 @@
 */
 
 use Xoops\Core\Database\Connection;
+use Xoops\Core\Kernel\DataType;
 use Xoops\Core\Kernel\XoopsObject;
 use Xoops\Core\Kernel\XoopsPersistableObjectHandler;
 
 /**
  * page module
  *
- * @copyright       XOOPS Project (http://xoops.org)
- * @license         GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @copyright       XOOPS Project (https://xoops.org)
+ * @license         GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  * @package         page
- * @since           2.6.0
  * @author          DuGris (aka Laurent JEN)
- * @version         $Id$
  */
 
 class PagePage_related_link extends XoopsObject
@@ -31,14 +30,14 @@ class PagePage_related_link extends XoopsObject
      */
     public function __construct()
     {
-        $this->initVar('link_id', XOBJ_DTYPE_INT, null, false, 8);
-        $this->initVar('link_related_id', XOBJ_DTYPE_TXTBOX, null, false);
-        $this->initVar('link_content_id', XOBJ_DTYPE_INT, null, false, 1);
-        $this->initVar('link_weight', XOBJ_DTYPE_INT, null, false, 1);
+        $this->initVar('link_id', DataType::INTEGER, null, false, 8);
+        $this->initVar('link_related_id', DataType::STRING, null, false);
+        $this->initVar('link_content_id', DataType::INTEGER, null, false, 1);
+        $this->initVar('link_weight', DataType::INTEGER, null, false, 1);
 
         // joint
-        $this->initVar('content_id', XOBJ_DTYPE_INT, 0, false, 11);
-        $this->initVar('content_title', XOBJ_DTYPE_TXTBOX, '', false);
+        $this->initVar('content_id', DataType::INTEGER, 0, false, 11);
+        $this->initVar('content_title', DataType::STRING, '', false);
     }
 
     public function getValues($keys = null, $format = null, $maxDepth = null)

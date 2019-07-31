@@ -10,15 +10,15 @@
 */
 
 use Xoops\Core\Kernel\Criteria;
-use Xoops\Core\Kernel\Dtype;
+use Xoops\Core\Kernel\DataType;
 use Xoops\Html\Menu\Link;
 use Xmf\Request;
 
 /**
  * Extended User Profile
  *
- * @copyright       2000-2016 XOOPS Project (http://xoops.org)
- * @license         GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @copyright       2000-2019 XOOPS Project (https://xoops.org)
+ * @license         GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  * @package         profile
  * @since           2.3.0
  * @author          Jan Pedersen
@@ -81,7 +81,7 @@ switch ($op) {
             $sortby_arr[$i] = $fields[$i]->getVar('field_title');
             switch ($fields[$i]->getVar('field_type')) {
                 case "textbox":
-                    if ($fields[$i]->getVar('field_valuetype') == Dtype::TYPE_INTEGER) {
+                    if ($fields[$i]->getVar('field_valuetype') == DataType::INTEGER) {
                         $searchform->addElement(new Xoops\Form\Text(sprintf(_PROFILE_MA_LARGERTHAN, $fields[$i]->getVar('field_title')), $fields[$i]->getVar('field_name') . "_larger", 35, 35));
                         $searchform->addElement(new Xoops\Form\Text(sprintf(_PROFILE_MA_SMALLERTHAN, $fields[$i]->getVar('field_title')), $fields[$i]->getVar('field_name') . "_smaller", 35, 35));
                     } else {
@@ -240,16 +240,16 @@ switch ($op) {
                 }
                 //If field value is sent through request and is not an empty value
                 switch ($fields[$i]->getVar('field_valuetype')) {
-                    case Dtype::TYPE_OTHER:
-                    case Dtype::TYPE_INTEGER:
+                    case DataType::OTHER:
+                    case DataType::INTEGER:
                         $value = array_map('intval', $_REQUEST[$fieldname]);
                         $searchvars[] = $fieldname;
                         $criteria->add(new Criteria($fieldname, "(" . implode(',', $value) . ")", "IN"));
                         break;
 
-                    case Dtype::TYPE_URL:
-                    case Dtype::TYPE_TEXT_BOX:
-                    case Dtype::TYPE_TEXT_AREA:
+                    case DataType::URL:
+                    case DataType::STRING:
+                    case DataType::TEXT:
                         $value = array_map(array($xoopsDB, "quoteString"), $_REQUEST[$fieldname]);
                         $searchvars[] = $fieldname;
                         $criteria->add(new Criteria($fieldname, "(" . implode(',', $value) . ")", "IN"));
@@ -261,8 +261,8 @@ switch ($op) {
             } else {
                 //Other fields (not radio, not select)
                 switch ($fields[$i]->getVar('field_valuetype')) {
-                    case Dtype::TYPE_OTHER:
-                    case Dtype::TYPE_INTEGER:
+                    case DataType::OTHER:
+                    case DataType::INTEGER:
                         switch ($fields[$i]->getVar('field_type')) {
                             case "date":
                             case "datetime":
@@ -326,7 +326,7 @@ switch ($op) {
                         }
                         break;
 
-                    case Dtype::TYPE_TIMEZONE:
+                    case DataType::TIMEZONE:
                         if (isset($_REQUEST[$fieldname]) && $_REQUEST[$fieldname] != "") {
                             $workingArray = Request::getArray($fieldname, []);
                             foreach ($workingArray as $tempValue) {
@@ -339,9 +339,9 @@ switch ($op) {
                         }
                         break;
 
-                    case Dtype::TYPE_URL:
-                    case Dtype::TYPE_TEXT_BOX:
-                    case Dtype::TYPE_TEXT_AREA:
+                    case DataType::URL:
+                    case DataType::STRING:
+                    case DataType::TEXT:
                         if (isset($_REQUEST[$fieldname]) && $_REQUEST[$fieldname] != "") {
                             $value = trim($_REQUEST[$fieldname]);
                             switch ($_REQUEST[$fieldname . '_match']) {

@@ -10,13 +10,13 @@
 */
 
 use Xoops\Core\FixedGroups;
-use Xoops\Core\Kernel\Dtype;
+use Xoops\Core\Kernel\DataType;
 
 /**
  * Extended User Profile
  *
- * @copyright       2000-2016 XOOPS Project (http://xoops.org)
- * @license         GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @copyright       2000-2019 XOOPS Project (https://xoops.org)
+ * @license         GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  * @package         profile
  * @since           2.3.0
  * @author          Jan Pedersen
@@ -45,7 +45,7 @@ function xoops_module_install_profile($module)
 
     profile_install_addField('name', XoopsLocale::REAL_NAME, '', 1, 'textbox', 1, 1, 1, array(), 2, 255);
     profile_install_addField('user_from', XoopsLocale::LOCATION, '', 1, 'textbox', 1, 2, 1, array(), 2, 255);
-    profile_install_addField('timezone', XoopsLocale::TIME_ZONE, '', 1, 'timezone', Dtype::TYPE_TIMEZONE, 3, 1, array(), 2, 0);
+    profile_install_addField('timezone', XoopsLocale::TIME_ZONE, '', 1, 'timezone', DataType::TIMEZONE, 3, 1, array(), 2, 0);
     profile_install_addField('user_occ', XoopsLocale::OCCUPATION, '', 1, 'textbox', 1, 4, 1, array(), 2, 255);
     profile_install_addField('user_intrest', XoopsLocale::INTEREST, '', 1, 'textbox', 1, 5, 1, array(), 2, 255);
     profile_install_addField('bio', XoopsLocale::EXTRA_INFO, '', 1, 'textarea', 2, 6, 1, array(), 2, 0);

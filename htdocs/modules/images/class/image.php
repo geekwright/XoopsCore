@@ -12,16 +12,14 @@
 use Xoops\Core\Database\Connection;
 use Xoops\Core\Kernel\Criteria;
 use Xoops\Core\Kernel\CriteriaCompo;
-use Xoops\Core\Kernel\CriteriaElement;
+use Xoops\Core\Kernel\DataType;
 use Xoops\Core\Kernel\XoopsObject;
 use Xoops\Core\Kernel\XoopsPersistableObjectHandler;
 
 /**
- * @copyright       XOOPS Project (http://xoops.org)
- * @license         GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @copyright       XOOPS Project (https://xoops.org)
+ * @license         GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  * @package         Images
- * @author
- * @version         $Id$
  */
 
 class ImagesImage extends XoopsObject
@@ -31,14 +29,14 @@ class ImagesImage extends XoopsObject
      */
     public function __construct()
     {
-        $this->initVar('image_id', XOBJ_DTYPE_INT, null, false, 8);
-        $this->initVar('image_name', XOBJ_DTYPE_TXTBOX, '', true, 30);
-        $this->initVar('image_nicename', XOBJ_DTYPE_TXTBOX, '', true, 255);
-        $this->initVar('image_mimetype', XOBJ_DTYPE_TXTBOX, '', true, 30);
-        $this->initVar('image_created', XOBJ_DTYPE_INT, time(), false, 10);
-        $this->initVar('image_display', XOBJ_DTYPE_INT, 1, false, 1);
-        $this->initVar('image_weight', XOBJ_DTYPE_INT, 0, false, 5);
-        $this->initVar('imgcat_id', XOBJ_DTYPE_INT, 0, false, 5);
+        $this->initVar('image_id', DataType::INTEGER, null, false, 8);
+        $this->initVar('image_name', DataType::STRING, '', true, 30);
+        $this->initVar('image_nicename', DataType::STRING, '', true, 255);
+        $this->initVar('image_mimetype', DataType::STRING, '', true, 30);
+        $this->initVar('image_created', DataType::INTEGER, time(), false, 10);
+        $this->initVar('image_display', DataType::INTEGER, 1, false, 1);
+        $this->initVar('image_weight', DataType::INTEGER, 0, false, 5);
+        $this->initVar('imgcat_id', DataType::INTEGER, 0, false, 5);
     }
 }
 
@@ -49,16 +47,16 @@ class ImagesImage_Body extends XoopsObject
      */
     public function __construct()
     {
-        $this->initVar('image_id', XOBJ_DTYPE_INT, null, false, 8);
-        $this->initVar('image_name', XOBJ_DTYPE_TXTBOX, '', true, 30);
-        $this->initVar('image_nicename', XOBJ_DTYPE_TXTBOX, '', true, 255);
-        $this->initVar('image_mimetype', XOBJ_DTYPE_TXTBOX, '', true, 30);
-        $this->initVar('image_created', XOBJ_DTYPE_INT, time(), false, 10);
-        $this->initVar('image_display', XOBJ_DTYPE_INT, 1, false, 1);
-        $this->initVar('image_weight', XOBJ_DTYPE_INT, 0, false, 5);
-        $this->initVar('imgcat_id', XOBJ_DTYPE_INT, 0, false, 5);
+        $this->initVar('image_id', DataType::INTEGER, null, false, 8);
+        $this->initVar('image_name', DataType::STRING, '', true, 30);
+        $this->initVar('image_nicename', DataType::STRING, '', true, 255);
+        $this->initVar('image_mimetype', DataType::STRING, '', true, 30);
+        $this->initVar('image_created', DataType::INTEGER, time(), false, 10);
+        $this->initVar('image_display', DataType::INTEGER, 1, false, 1);
+        $this->initVar('image_weight', DataType::INTEGER, 0, false, 5);
+        $this->initVar('imgcat_id', DataType::INTEGER, 0, false, 5);
 
-        $this->initVar('image_body', XOBJ_DTYPE_SOURCE, null, true);
+        $this->initVar('image_body', DataType::SOURCE, null, true);
     }
 }
 

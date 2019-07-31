@@ -14,17 +14,17 @@ namespace XoopsModules\Publisher;
 
 use Notifications;
 use Xoops;
+use Xoops\Core\Kernel\DataType;
 use Xoops\Core\Kernel\XoopsObject;
 use XoopsModules\Publisher;
 
 /**
  * @copyright       The XUUPS Project http://sourceforge.net/projects/xuups/
- * @license         GNU GPL V2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @license         GNU GPL V2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  * @package         Publisher
  * @since           1.0
  * @author          trabis <lusopoemas@gmail.com>
  * @author          The SmartFactory <www.smartfactory.ca>
- * @version         $Id$
  */
 require_once \dirname(__DIR__) . '/include/common.php';
 
@@ -51,25 +51,25 @@ class Category extends XoopsObject
     public function __construct()
     {
         $this->helper = Helper::getInstance();
-        $this->initVar('categoryid', \XOBJ_DTYPE_INT, null, false);
-        $this->initVar('parentid', \XOBJ_DTYPE_INT, null, false);
-        $this->initVar('name', \XOBJ_DTYPE_TXTBOX, null, true, 100);
-        $this->initVar('description', \XOBJ_DTYPE_TXTAREA, null, false, 255);
-        $this->initVar('image', \XOBJ_DTYPE_TXTBOX, null, false, 255);
-        $this->initVar('total', \XOBJ_DTYPE_INT, 1, false);
-        $this->initVar('weight', \XOBJ_DTYPE_INT, 1, false);
-        $this->initVar('created', \XOBJ_DTYPE_INT, null, false);
-        $this->initVar('template', \XOBJ_DTYPE_TXTBOX, null, false, 255);
-        $this->initVar('header', \XOBJ_DTYPE_TXTAREA, null, false);
-        $this->initVar('meta_keywords', \XOBJ_DTYPE_TXTAREA, null, false);
-        $this->initVar('meta_description', \XOBJ_DTYPE_TXTAREA, null, false);
-        $this->initVar('short_url', \XOBJ_DTYPE_TXTBOX, null, false, 255);
-        $this->initVar('moderator', \XOBJ_DTYPE_INT, null, false, 0);
+        $this->initVar('categoryid', DataType::INTEGER, null, false);
+        $this->initVar('parentid', DataType::INTEGER, null, false);
+        $this->initVar('name', DataType::STRING, null, true, 100);
+        $this->initVar('description', DataType::TEXT, null, false, 255);
+        $this->initVar('image', DataType::STRING, null, false, 255);
+        $this->initVar('total', DataType::INTEGER, 1, false);
+        $this->initVar('weight', DataType::INTEGER, 1, false);
+        $this->initVar('created', DataType::INTEGER, null, false);
+        $this->initVar('template', DataType::STRING, null, false, 255);
+        $this->initVar('header', DataType::TEXT, null, false);
+        $this->initVar('meta_keywords', DataType::TEXT, null, false);
+        $this->initVar('meta_description', DataType::TEXT, null, false);
+        $this->initVar('short_url', DataType::STRING, null, false, 255);
+        $this->initVar('moderator', DataType::INTEGER, null, false, 0);
         //not persistent values
-        $this->initVar('itemcount', \XOBJ_DTYPE_INT, 0, false);
-        $this->initVar('last_itemid', \XOBJ_DTYPE_INT);
-        $this->initVar('last_title_link', \XOBJ_DTYPE_TXTBOX);
-        $this->initVar('dohtml', \XOBJ_DTYPE_INT, 1, false);
+        $this->initVar('itemcount', DataType::INTEGER, 0, false);
+        $this->initVar('last_itemid', DataType::INTEGER);
+        $this->initVar('last_title_link', DataType::STRING);
+        $this->initVar('dohtml', DataType::INTEGER, 1, false);
     }
 
     public function notLoaded(): bool

@@ -12,15 +12,15 @@
 /**
  * banners module
  *
- * @copyright       XOOPS Project (http://xoops.org)
- * @license         GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @copyright       XOOPS Project (https://xoops.org)
+ * @license         GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  * @package         banners
  * @since           2.6.0
  * @author          Mage Gregory (AKA Mage)
- * @version         $Id$
  */
 
 use Xoops\Core\Database\Connection;
+use Xoops\Core\Kernel\DataType;
 use Xoops\Core\Kernel\XoopsObject;
 use Xoops\Core\Kernel\XoopsPersistableObjectHandler;
 
@@ -31,18 +31,18 @@ class BannersBanner extends XoopsObject
      */
     public function __construct()
     {
-        $this->initVar('banner_bid', XOBJ_DTYPE_INT, null, false, 5);
-        $this->initVar('banner_cid', XOBJ_DTYPE_INT, null, false, 3);
-        $this->initVar('banner_imptotal', XOBJ_DTYPE_INT, null, false, 8);
-        $this->initVar('banner_impmade', XOBJ_DTYPE_INT, null, false, 8);
-        $this->initVar('banner_clicks', XOBJ_DTYPE_INT, null, false, 8);
-        $this->initVar('banner_imageurl', XOBJ_DTYPE_TXTBOX, null, false);
-        $this->initVar('banner_clickurl', XOBJ_DTYPE_TXTBOX, null, false);
-        $this->initVar('banner_datestart', XOBJ_DTYPE_INT, null, false, 10);
-        $this->initVar('banner_dateend', XOBJ_DTYPE_INT, null, false, 10);
-        $this->initVar('banner_htmlbanner', XOBJ_DTYPE_INT, null, false, 1);
-        $this->initVar('banner_htmlcode', XOBJ_DTYPE_TXTBOX, null, false);
-        $this->initVar('banner_status', XOBJ_DTYPE_INT, null, false, 1);
+        $this->initVar('banner_bid', DataType::INTEGER, null, false, 5);
+        $this->initVar('banner_cid', DataType::INTEGER, null, false, 3);
+        $this->initVar('banner_imptotal', DataType::INTEGER, null, false, 8);
+        $this->initVar('banner_impmade', DataType::INTEGER, null, false, 8);
+        $this->initVar('banner_clicks', DataType::INTEGER, null, false, 8);
+        $this->initVar('banner_imageurl', DataType::TEXT, null, false);
+        $this->initVar('banner_clickurl', DataType::TEXT, null, false);
+        $this->initVar('banner_datestart', DataType::INTEGER, null, false, 10);
+        $this->initVar('banner_dateend', DataType::INTEGER, null, false, 10);
+        $this->initVar('banner_htmlbanner', DataType::INTEGER, null, false, 1);
+        $this->initVar('banner_htmlcode', DataType::TEXT, null, false);
+        $this->initVar('banner_status', DataType::INTEGER, null, false, 1);
     }
 }
 

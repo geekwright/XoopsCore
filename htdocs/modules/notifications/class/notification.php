@@ -13,6 +13,7 @@ use Xoops\Core\Database\Connection;
 use Xoops\Core\Kernel\Criteria;
 use Xoops\Core\Kernel\CriteriaCompo;
 use Xoops\Core\Kernel\CriteriaElement;
+use Xoops\Core\Kernel\DataType;
 use Xoops\Core\Kernel\XoopsObject;
 use Xoops\Core\Kernel\XoopsPersistableObjectHandler;
 use Xoops\Core\Kernel\Handlers\XoopsUser;
@@ -36,13 +37,13 @@ class NotificationsNotification extends XoopsObject
      **/
     public function __construct()
     {
-        $this->initVar('id', XOBJ_DTYPE_INT, null, false);
-        $this->initVar('modid', XOBJ_DTYPE_INT, null, false);
-        $this->initVar('category', XOBJ_DTYPE_TXTBOX, null, false, 30);
-        $this->initVar('itemid', XOBJ_DTYPE_INT, 0, false);
-        $this->initVar('event', XOBJ_DTYPE_TXTBOX, null, false, 30);
-        $this->initVar('uid', XOBJ_DTYPE_INT, 0, true);
-        $this->initVar('mode', XOBJ_DTYPE_INT, 0, false);
+        $this->initVar('id', DataType::INTEGER, null, false);
+        $this->initVar('modid', DataType::INTEGER, null, false);
+        $this->initVar('category', DataType::STRING, null, false, 30);
+        $this->initVar('itemid', DataType::INTEGER, 0, false);
+        $this->initVar('event', DataType::STRING, null, false, 30);
+        $this->initVar('uid', DataType::INTEGER, 0, true);
+        $this->initVar('mode', DataType::INTEGER, 0, false);
     }
 
     // FIXME:???

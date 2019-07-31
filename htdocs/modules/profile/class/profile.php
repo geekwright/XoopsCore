@@ -10,7 +10,7 @@
 */
 
 use Xoops\Core\Database\Connection;
-use Xoops\Core\Kernel\Dtype;
+use Xoops\Core\Kernel\DataType;
 use Xoops\Core\Kernel\XoopsObject;
 use Xoops\Core\Kernel\XoopsPersistableObjectHandler;
 use Xoops\Core\Kernel\CriteriaElement;
@@ -36,7 +36,7 @@ class ProfileProfile extends XoopsObject
      */
     public function __construct($fields)
     {
-        $this->initVar('profile_id', Dtype::TYPE_INTEGER, null, true);
+        $this->initVar('profile_id', DataType::INTEGER, null, true);
         $this->init($fields);
     }
 

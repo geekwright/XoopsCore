@@ -12,15 +12,15 @@
 /**
  * banners module
  *
- * @copyright       XOOPS Project (http://xoops.org)
- * @license         GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @copyright       XOOPS Project (https://xoops.org)
+ * @license         GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  * @package         banners
  * @since           2.6.0
  * @author          Mage Gregory (AKA Mage)
- * @version         $Id$
  */
 
 use Xoops\Core\Database\Connection;
+use Xoops\Core\Kernel\DataType;
 use Xoops\Core\Kernel\XoopsObject;
 use Xoops\Core\Kernel\XoopsPersistableObjectHandler;
 
@@ -31,10 +31,10 @@ class BannersBannerclient extends XoopsObject
      */
     public function __construct()
     {
-        $this->initVar('bannerclient_cid', XOBJ_DTYPE_INT, null, false, 5);
-        $this->initVar('bannerclient_uid', XOBJ_DTYPE_INT, 0, true);
-        $this->initVar('bannerclient_name', XOBJ_DTYPE_TXTBOX, null, false);
-        $this->initVar('bannerclient_extrainfo', XOBJ_DTYPE_TXTAREA, null, false);
+        $this->initVar('bannerclient_cid', DataType::INTEGER, null, false, 5);
+        $this->initVar('bannerclient_uid', DataType::INTEGER, 0, true);
+        $this->initVar('bannerclient_name', DataType::STRING, null, false);
+        $this->initVar('bannerclient_extrainfo', DataType::TEXT, null, false);
     }
     public function get_new_id()
     {

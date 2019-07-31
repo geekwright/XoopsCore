@@ -5,6 +5,7 @@ class WriteTest_XoopsObjectInstance extends Xoops\Core\Kernel\XoopsObject
 {
 }
 
+use Xoops\Core\Kernel\DataType;
 use Xoops\Core\Kernel\Model\Write;
 use Xoops\Core\Kernel\Handlers\XoopsGroupHandler;
 
@@ -32,8 +33,8 @@ class WriteTest extends \PHPUnit\Framework\TestCase
         $instance=new $this->myClass();
 
         $object = new WriteTest_XoopsObjectInstance();
-        $object->initVar('dummyVar1', XOBJ_DTYPE_INT, 0);
-        $object->initVar('dummyVar2', XOBJ_DTYPE_INT, 0);
+        $object->initVar('dummyVar1', DataType::INTEGER, 0);
+        $object->initVar('dummyVar2', DataType::INTEGER, 0);
         $object->setVar('dummyVar1', 1);
         $object->setVar('dummyVar2', 2);
         $x = $instance->cleanVars($object);

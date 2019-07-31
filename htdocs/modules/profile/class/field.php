@@ -10,7 +10,7 @@
 */
 
 use Xoops\Core\Database\Connection;
-use Xoops\Core\Kernel\Dtype;
+use Xoops\Core\Kernel\DataType;
 use Xoops\Core\Kernel\Handlers\XoopsUser;
 use Xoops\Core\Kernel\XoopsObject;
 use Xoops\Core\Kernel\XoopsPersistableObjectHandler;
@@ -21,8 +21,8 @@ use Xoops\Core\Kernel\XoopsPersistableObjectHandler;
  * @package         Profile
  * @author          Jan Pedersen
  * @author          Taiwen Jiang <phppp@users.sourceforge.net>
- * @copyright       2000-2016 XOOPS Project (www.xoops.org)
- * @license         GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @copyright       2000-2019 XOOPS Project (https://xoops.org)
+ * @license         GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  * @since           2.3.0
  */
 class ProfileField extends XoopsObject
@@ -32,23 +32,23 @@ class ProfileField extends XoopsObject
      */
     public function __construct()
     {
-        $this->initVar('field_id', Dtype::TYPE_INTEGER, null);
-        $this->initVar('cat_id', Dtype::TYPE_INTEGER, null, true);
-        $this->initVar('field_type', Dtype::TYPE_TEXT_BOX);
-        $this->initVar('field_valuetype', Dtype::TYPE_INTEGER, null, true);
-        $this->initVar('field_name', Dtype::TYPE_TEXT_BOX, null, true);
-        $this->initVar('field_title', Dtype::TYPE_TEXT_BOX);
-        $this->initVar('field_description', Dtype::TYPE_TEXT_AREA);
-        $this->initVar('field_required', Dtype::TYPE_INTEGER, 0); //0 = no, 1 = yes
-        $this->initVar('field_maxlength', Dtype::TYPE_INTEGER, 0);
-        $this->initVar('field_weight', Dtype::TYPE_INTEGER, 0);
-        $this->initVar('field_default', Dtype::TYPE_TEXT_AREA, "");
-        $this->initVar('field_notnull', Dtype::TYPE_INTEGER, 1);
-        $this->initVar('field_edit', Dtype::TYPE_INTEGER, 0);
-        $this->initVar('field_show', Dtype::TYPE_INTEGER, 0);
-        $this->initVar('field_config', Dtype::TYPE_INTEGER, 0);
-        $this->initVar('field_options', Dtype::TYPE_ARRAY, array());
-        $this->initVar('step_id', Dtype::TYPE_INTEGER, 0);
+        $this->initVar('field_id', DataType::INTEGER, null);
+        $this->initVar('cat_id', DataType::INTEGER, null, true);
+        $this->initVar('field_type', DataType::STRING);
+        $this->initVar('field_valuetype', DataType::INTEGER, null, true);
+        $this->initVar('field_name', DataType::STRING, null, true);
+        $this->initVar('field_title', DataType::STRING);
+        $this->initVar('field_description', DataType::TEXT);
+        $this->initVar('field_required', DataType::INTEGER, 0); //0 = no, 1 = yes
+        $this->initVar('field_maxlength', DataType::INTEGER, 0);
+        $this->initVar('field_weight', DataType::INTEGER, 0);
+        $this->initVar('field_default', DataType::TEXT, "");
+        $this->initVar('field_notnull', DataType::INTEGER, 1);
+        $this->initVar('field_edit', DataType::INTEGER, 0);
+        $this->initVar('field_show', DataType::INTEGER, 0);
+        $this->initVar('field_config', DataType::INTEGER, 0);
+        $this->initVar('field_options', DataType::ARRAY, array());
+        $this->initVar('step_id', DataType::INTEGER, 0);
     }
 
     /**
@@ -60,7 +60,7 @@ class ProfileField extends XoopsObject
      *
      * @return void
      *
-     * @todo evaluate removing this. New considerations: full UTF-8 system, new Dtype::TYPE_JSON
+     * @todo evaluate removing this. New considerations: full UTF-8 system, new DataType::JSON
      */
     public function setVar($key, $value)
     {
@@ -465,51 +465,51 @@ class ProfileFieldHandler extends XoopsPersistableObjectHandler
         switch ($obj->getVar('field_type')) {
             case "datetime":
             case "date":
-                $obj->setVar('field_valuetype', Dtype::TYPE_INTEGER);
+                $obj->setVar('field_valuetype', DataType::INTEGER);
                 $obj->setVar('field_maxlength', 10);
                 break;
 
             case "longdate":
-                $obj->setVar('field_valuetype', Dtype::TYPE_MEDIUM_TIME);
+                $obj->setVar('field_valuetype', DataType::MEDIUM_TIME);
                 break;
 
             case "yesno":
-                $obj->setVar('field_valuetype', Dtype::TYPE_INTEGER);
+                $obj->setVar('field_valuetype', DataType::INTEGER);
                 $obj->setVar('field_maxlength', 1);
                 break;
 
             case "textbox":
-                if ($obj->getVar('field_valuetype') != Dtype::TYPE_INTEGER) {
-                    $obj->setVar('field_valuetype', Dtype::TYPE_TEXT_BOX);
+                if ($obj->getVar('field_valuetype') != DataType::INTEGER) {
+                    $obj->setVar('field_valuetype', DataType::STRING);
                 }
                 break;
 
             case "autotext":
-                if ($obj->getVar('field_valuetype') != Dtype::TYPE_INTEGER) {
-                    $obj->setVar('field_valuetype', Dtype::TYPE_TEXT_AREA);
+                if ($obj->getVar('field_valuetype') != DataType::INTEGER) {
+                    $obj->setVar('field_valuetype', DataType::TEXT);
                 }
                 break;
 
             case "group_multi":
             case "select_multi":
             case "checkbox":
-                $obj->setVar('field_valuetype', Dtype::TYPE_ARRAY);
+                $obj->setVar('field_valuetype', DataType::ARRAY);
                 break;
 
             case "language":
             case "timezone":
             case "theme":
-                $obj->setVar('field_valuetype', Dtype::TYPE_TEXT_BOX);
+                $obj->setVar('field_valuetype', DataType::STRING);
                 break;
 
             case "dhtml":
             case "textarea":
-                $obj->setVar('field_valuetype', Dtype::TYPE_TEXT_AREA);
+                $obj->setVar('field_valuetype', DataType::TEXT);
                 break;
         }
 
         if ($obj->getVar('field_valuetype') == "") {
-            $obj->setVar('field_valuetype', Dtype::TYPE_TEXT_BOX);
+            $obj->setVar('field_valuetype', DataType::STRING);
         }
 
         if (!in_array($obj->getVar('field_name'), $this->getUserVars())) {
@@ -525,10 +525,10 @@ class ProfileFieldHandler extends XoopsPersistableObjectHandler
             //set type
             switch ($obj->getVar('field_valuetype')) {
                 default:
-                case Dtype::TYPE_ARRAY:
-                case Dtype::TYPE_EMAIL:
-                case Dtype::TYPE_TEXT_BOX:
-                case Dtype::TYPE_URL:
+                case DataType::ARRAY:
+                case DataType::EMAIL:
+                case DataType::STRING:
+                case DataType::URL:
                     $type = "varchar";
                     // varchars must have a maxlength
                     if (!$maxlengthstring) {
@@ -538,25 +538,25 @@ class ProfileFieldHandler extends XoopsPersistableObjectHandler
                     }
                     break;
 
-                case Dtype::TYPE_INTEGER:
+                case DataType::INTEGER:
                     $type = "int";
                     break;
 
-                case Dtype::TYPE_DECIMAL:
+                case DataType::DECIMAL:
                     $type = "decimal(14,6)";
                     break;
 
-                case Dtype::TYPE_FLOAT:
+                case DataType::FLOAT:
                     $type = "float(15,9)";
                     break;
 
-                case Dtype::TYPE_OTHER:
-                case Dtype::TYPE_TEXT_AREA:
+                case DataType::OTHER:
+                case DataType::TEXT:
                     $type = "text";
                     $maxlengthstring = "";
                     break;
 
-                case Dtype::TYPE_MEDIUM_TIME:
+                case DataType::MEDIUM_TIME:
                     $type = "date";
                     $maxlengthstring = "";
                     break;

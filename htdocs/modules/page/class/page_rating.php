@@ -10,18 +10,17 @@
 */
 
 use Xoops\Core\Database\Connection;
+use Xoops\Core\Kernel\DataType;
 use Xoops\Core\Kernel\XoopsObject;
 use Xoops\Core\Kernel\XoopsPersistableObjectHandler;
 
 /**
  * page module
  *
- * @copyright       XOOPS Project (http://xoops.org)
- * @license         GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @copyright       XOOPS Project (https://xoops.org)
+ * @license         GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  * @package         page
- * @since           2.6.0
  * @author          Mage Grégory (AKA Mage)
- * @version         $Id$
  */
 
 class PagePage_rating extends XoopsObject
@@ -31,12 +30,12 @@ class PagePage_rating extends XoopsObject
      */
     public function __construct()
     {
-        $this->initVar('rating_id', XOBJ_DTYPE_INT, 0, false, 10);
-        $this->initVar('rating_content_id', XOBJ_DTYPE_INT, null, false, 10);
-        $this->initVar('rating_uid', XOBJ_DTYPE_INT, null, false, 10);
-        $this->initVar('rating_rating', XOBJ_DTYPE_OTHER, null, false, 3);
-        $this->initVar('rating_ip', XOBJ_DTYPE_TXTBOX, null, false);
-        $this->initVar('rating_date', XOBJ_DTYPE_INT, time(), false, 10);
+        $this->initVar('rating_id', DataType::INTEGER, 0, false, 10);
+        $this->initVar('rating_content_id', DataType::INTEGER, null, false, 10);
+        $this->initVar('rating_uid', DataType::INTEGER, null, false, 10);
+        $this->initVar('rating_rating', DataType::OTHER, null, false, 3);
+        $this->initVar('rating_ip', DataType::STRING, null, false);
+        $this->initVar('rating_date', DataType::INTEGER, time(), false, 10);
     }
 }
 
